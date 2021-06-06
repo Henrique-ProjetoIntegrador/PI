@@ -8,17 +8,13 @@
     <title>HOME</title>
 </head>
 <body>
-<header>
-    <nav id="menu">
-        <ul>
-            <li><a href="../index.html">HOME</a></li>
-                <li><a href="clientes.html">CLIENTES</a></li>
-                <li><a href="veiculos.html">VEÍCULOS</a></li>
-                <li><a href="orcamentos.html">ORÇAMENTOS</a></li>
-                <li><a href="pecas.html">PEÇAS</a></li>
-        </ul>
-    </nav>
-</header>
+
+<?php
+
+    include_once "layout/menu.php";
+
+?>
+
 <main>
     <form class="formulario">
             <label for="idClient">idCliente</label>
