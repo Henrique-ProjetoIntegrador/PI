@@ -1,0 +1,14 @@
+body{
+    background: #e5e5e5;
+}
+.btn-danger{
+    background: #e14734;
+    box-shadow: 5px 5px #b5aeae;
+    border-radius: 0px;
+    color: black;
+}
+.btn-danger:hover{
+    background: #a92818;
+    box-shadow: 5px 5px #b5aeae;
+    border-radius: 0px
+}
