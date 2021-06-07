@@ -22,7 +22,9 @@
     <main>
     </main>   
     <footer>
-
+    <?php
+        echo "teste php";
+    ?>
     </footer>
 </body>
 </html>
