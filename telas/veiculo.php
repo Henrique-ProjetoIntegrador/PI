@@ -17,11 +17,10 @@
 <header>
     <?php
 
-    include_once "../layout/menu.php";
+        include_once "../layout/menu.php";
 
     ?>
 </header>
-
 <br>
     <div class="container">
         <div class="row">
