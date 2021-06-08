@@ -5,8 +5,8 @@
     <?php
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
-    <link rel="stylesheet" href="../styles/menu.css"/>
-    <link rel="stylesheet" href="../styles/clientes.css"/>
+    <link rel="stylesheet" href="../../styles/menu.css"/>
+    <link rel="stylesheet" href="../../styles/clientes.css"/>
     <title>CLIENTES</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
     <main>
     <nav id="BotaoClientes">
             <ul>
-                <li ><a href="../index.php">MENU</a></li>
+                <li ><a href="../principal/index.php">MENU</a></li>
                 <li><a href="novoClientes.php">NOVO</a></li>
                 
             </ul>
