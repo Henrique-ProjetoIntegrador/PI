@@ -2,6 +2,9 @@
 <html lang="PT-BR">
 <head>
     <meta charset="UTF-8">
+    <?php
+        include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
+    ?>
     <link rel="stylesheet" href="../styles/menu.css"/>
     <link rel="stylesheet" href="../styles/clientes.css"/>
     <title>CLIENTES</title>
@@ -10,7 +13,7 @@
 
 <?php
 
-    include_once "layout/menu.php";
+    include_once "../layout/menu.php";
 
 ?>
 

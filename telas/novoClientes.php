@@ -2,18 +2,21 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-
+    <?php
+        include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
+    ?>
     <link rel="stylesheet" href="../styles/menu.css"/>
     <link rel="stylesheet" href="../styles/novoClientes.css"/>
     <title>HOME</title>
 </head>
 <body>
-
+<header>
 <?php
 
-    include_once "layout/menu.php";
+    include_once "../layout/menu.php";
 
 ?>
+</header>
 
 <main>
     <form class="formulario">

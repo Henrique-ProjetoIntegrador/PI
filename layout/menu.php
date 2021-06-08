@@ -8,10 +8,10 @@
                         <li><a href="index.php"> <h1>HOME</h1></a></li>
                     </div>
                     <div class="col-2">
-                        <li><a href=""> <h1>clientes</h1></a></li>
+                        <li><a href="telas/clientes.php"> <h1>clientes</h1></a></li>
                     </div>
                     <div class= "col-3">
-                        <li><a href=""> <h1>veículos</h1></a></li>
+                        <li><a href="telas/veiculo.php"> <h1>veículos</h1></a></li>
                     </div>
                     <div class= "col-2">
                         <li><a href=""><h1>orçamentos</h1></a></li>
