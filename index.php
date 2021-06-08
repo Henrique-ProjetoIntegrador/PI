@@ -61,14 +61,8 @@
     </div>
     <div class="imagem-veiculos col-lg-4 ">
         <figure class="figure">
-<<<<<<< HEAD
         <a href="telas/veiculo.php"><img src="icones/veiculo.png" class="figure-img img-fluid rounded" alt="Ícone veículo" width=250 height=250></a>
         <figcaption class="figure-caption">GERENCIAMENTO DE VEICULOS</figcaption>
-=======
-            <a href="telas/veiculo.php"><img src="icones/drawing4-512.png" class="figure-img img-fluid rounded"
-                                             alt="Ícone veículo" width=250 height=250></a>
-            <figcaption class="figure-caption">GERENCIAMENTO DE VEICULOS</figcaption>
->>>>>>> 843395f22903dd731813ba8e0e8b5fb822afde54
         </figure>
     </div>
 </div>
