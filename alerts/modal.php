@@ -8,18 +8,18 @@
     <?php
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
-    <link rel="stylesheet" href="testeModal/../modal.css">
+    <link rel="stylesheet" href="alerts/../modal.css">
   
 
-    <title>Alerts</title>
+    <title> Alerts </title>
 </head>
 <body>
     <!-- Alerta de remover clientes -->
-    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#testeModal"> 
+    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#remover"> 
         REMOVER
     </button>
 
-    <div class="modal"id= "testeModal" tabindex="-1" role="dialog">
+    <div class="modal"id= "remover" tabindex="-1" role="dialog">
         <div class="modal-dialog"role="document">
             <div class="modal-content">    
                 <div class="modal-header">
@@ -28,11 +28,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <div class="modal-body">
                     <p>Tem certeza que deseja remover?</p>
                 </div>
-
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Remover</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
@@ -42,11 +40,12 @@
     </div>
     <br>
 
-    <!-- Alerta de Confirmação de exclusão de clientes-->
-    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#testeModal4"> 
+    <!-- Alerta de Confirmação exclusão de clientes-->
+    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#confirmacao-remover"> 
     REMOVER 
     </button>
-    <div class="modal" id= "testeModal4" tabindex="-1" role="dialog">
+
+    <div class="modal" id= "confirmacao-remover" tabindex="-1" role="dialog">
         <div class= "modal-dialog" role="document">
             <div class= "modal-content">
                 <div class="modal-header">
@@ -55,11 +54,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <div class="modal-body">
                     <p>Removido com sucesso!</p>
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>                
                 </div>
@@ -68,12 +65,12 @@
     </div>
     <br>
 
-
-    <!-- Alerta de Confirmação ao Salvar-->
-    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#testeModal2">
+    <!-- Alerta de Confirmação Salvar-->
+    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#salvar">
     SALVAR
     </button> 
-    <div class="modal" id= "testeModal2" tabindex="-1" role="dialog">
+
+    <div class="modal" id= "salvar" tabindex="-1" role="dialog">
         <div class= "modal-dialog" role="document">
             <div class= "modal-content">
                 <div class="modal-header">
@@ -82,11 +79,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <div class="modal-body">
                     <p>Salvo com sucesso!</p>
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>                
                 </div>
@@ -94,11 +89,13 @@
         </div>
     </div>
     <br>
-    <!-- Alerta de confirmação ao editar -->
-    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#testeModal3"> 
+
+    <!-- Alerta de confirmação editar -->
+    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#editar"> 
         EDITAR
     </button>
-    <div class="modal" id= "testeModal3" tabindex="-1" role="dialog">
+
+    <div class="modal" id= "editar" tabindex="-1" role="dialog">
         <div class= "modal-dialog" role="document">
             <div class= "modal-content">
                 <div class="modal-header">
@@ -107,11 +104,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <div class="modal-body">
                     <p>Editado com sucesso!</p>
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>                
                 </div>
