@@ -14,3 +14,73 @@ body{
 .sair:hover{
     color: gray;
 }
+.figure-caption {
+    font-size: 114%;
+    color: #000000;
+    font-weight: bold;
+}
+
+figcaption.legenda-usuarios{
+    position: relative;
+    left: 208px;
+    top: 50px;
+}
+
+figcaption.legenda-pecas{
+    position: relative;
+    left: 205px;
+    top: 50px;
+}
+
+figcaption.legenda-orcamentos{
+    position: relative;
+    left: 69px;
+    margin-top: 58px;
+}
+
+
+figcaption.legenda-clientes{
+    position: relative;
+    left: -60px;
+    top: 50px;
+}
+
+figcaption.legenda-veiculos{
+    position: relative;
+    left: -5px;
+    top: 50px;
+}
+
+.imagem-usuarios a img{
+    top: 61px;
+    position: relative;
+    width: 189px;
+    left: 81px;
+}
+.imagem-pecas a img{
+   top: 95px;
+   position: relative;
+   width: 165px;
+   
+   left: 87px;
+}
+.imagem-orcamentos a img{
+   top: 63px;
+   position: relative;
+   width: 149px;
+
+   left: 135px;
+}
+.imagem-clientes a img{
+    top: 54px;
+    position: relative;
+    width: 169px;  
+    left: -60px;
+}
+.imagem-veiculos a img{
+     top: 23px;
+     position: relative;
+     width: 257px;
+   
+     left: 45px;
+}
