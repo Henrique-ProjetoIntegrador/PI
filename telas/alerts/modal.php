@@ -8,7 +8,7 @@
     <?php
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
-    <link rel="stylesheet" href="alerts/../modal.css">
+    <link rel="stylesheet" href="modal.css">
   
 
     <title> Alerts </title>
