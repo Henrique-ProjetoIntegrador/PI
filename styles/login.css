@@ -1,78 +1,81 @@
-* {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Aldrich;
-    color: #ffffff;
+/*Geral*/
+* { /* Todos os elementos*/
+    margin: 0; /*Tirar todas as margens*/
+    box-sizing: border-box; /*Box são do tamanho da borda*/ 
+    color: #ffffff; /*Setando a cor de todos os elementos*/
+    width: 100%; /*Largura*/
 }
 
-body {
-    background-color: #242424;  
+body { /* Elementos que aparece na tela*/
+    background-color: #242424;  /*Cor de fundo*/
 }
 
-a{
-    font-size: .8rem;
+textarea:focus, input:focus { /*Tira todos os focus*/
+    outline: none; /*Tira uma borda que vem com o navegador*/
 }
 
+a{ /*Todos os A*/
+    font-size: .8rem; /*Fonte*/
+}
+
+/*Container do login*/
 #login-container {
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px 30px;
-    margin-top: 10vh;
-    border-radius: 10px;
+    width: 400px; /*Largura*/
+    margin-left: auto; /*Margem*/
+    margin-right: auto; /*Margem*/
+    padding: 20px 30px; /*Afastar os elementos da borda*/
+    margin-top: 10vh; /*Margem proporcional a tela do usuario*/
 }
 
+/*Formulario*/
 form {
-    margin-top: 30px;
-    margin-bottom: 40px;
+    margin-top: 30px; /*Margem*/
+    margin-bottom: 40px; /*Margem*/
+    text-align: center; /*Texto centralizado*/
 }
 
 label, input {
-    display: block;
-    width: 100%;
-    text-align: center;
-    border-radius: 20px;
-    font-size: 40px;
+    text-align: center; /*Texto seja alinhado no centro*/
+    font-size: 40px; /*Fonte tamanho*/
 }
 
 label {
-    font-family: Aldrich;
-    font-size: 50px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 70px;
-    letter-spacing: 0em;
-    text-align: center;
-    font-weight: bold;
+    font-family: Aldrich; /*Fonte*/
 }
 
-input {
-    border-bottom: 2px solid #323232;
-    padding: 10px;
-    margin-bottom: 25px;
-    color: #242424;
-}
-input:focus {
-    border-bottom: 2px solid #008000;
-}
-input[type="submit"]{
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    height: 82px;
-    border-radius: 20px;
+input { /*Nos botões*/
+    border-bottom: 2px solid #323232; /*Borda no fundo*/
+    padding: 10px; /*Input longe das bordas*/
+    font-size: 2rem; /*Fonte tamanho*/
+    margin-bottom: 25px; /*Margem pra afastar do elementos*/
+    color: #E5E5E5; /*Cor*/
 }
 
-input[type="usuario"]{
-    width: 300px; height: 100px;
-    width: 100%;
+input[type="submit"]{ /*Muda so o submit*/
+    text-align: center; /*Texto centralizado*/
+    text-transform: uppercase; /*Todas as letras são maiusculo*/
+    font-weight: bold; /*Fonte em negrito*/
+    height: 82px; /*Altura*/
+    background-color: #e14734; /*Cor*/
+    cursor: pointer; /*Aparece mãozinha no botão*/
+    width: 100%; /*Largura*/
+    box-shadow: 5px 5px #b5aeae; /*Efeito de sombra*/
+    color: black; /*Cor*/
 }
 
-input[type="password"]{
-    width: 300px; height: 100px;
-    width: 100%;
+input[type="submit"]:hover{ /*Muda so o submit*/
+    background-color: #a92818; /*Muda a cor quando passa o mouse*/
+    transition: .5s; /*Muda a cor do submit com o tempo de 5s*/
 }
 
-input[type="submit"]{
-    background-color: #a0a0a0;
+input[type="usuario"]{ /*Muda so o usuario*/
+    color: #242424; /*Cor*/
+    padding: .6em .7em; /*Distancia dos elemntos da borda*/
+    box-shadow: 5px 5px #b5aeae; /*Efeito de sombra*/
+}
+
+input[type="password"]{ /*Muda so o password*/
+    color: #242424; /*Cor*/
+    padding: .6em .7em; /*Distancia dos elemntos da borda*/
+    box-shadow: 5px 5px #b5aeae; /*Efeito de sombra*/
 }
