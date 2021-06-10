@@ -20,11 +20,6 @@
         </form>
     </div>
     <main>
-    </main>   
-    <footer>
-    <?php
-        echo "teste php";
-    ?>
-    </footer>
+    </main>
 </body>
 </html>
