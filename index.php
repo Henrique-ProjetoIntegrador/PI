@@ -31,7 +31,7 @@
     </div>
     <div class="imagem-peças col-lg-3">
         <figure class="figure">
-            <a href="pecas.html"><img src="icones/pecas.png" class="figure-img img-fluid rounded" alt="Ícone peças."
+            <a href="telas/pecas.php"><img src="icones/pecas.png" class="figure-img img-fluid rounded" alt="Ícone peças."
                                       width=250 height=250></a>
             <figcaption class="figure-caption">GERENCIAMENTO DE PEÇAS</figcaption>
         </figure>

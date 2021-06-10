@@ -17,7 +17,7 @@
                         <li><a href=""><h1>orçamentos</h1></a></li>
                     </div>
                     <div class= "col-2">
-                        <li><a href=""><h1>peças</h1></a></li>
+                        <li><a href="telas/pecas.php"><h1>peças</h1></a></li>
                     </div>
                     
                     <div class ="col-2 offset-10">
