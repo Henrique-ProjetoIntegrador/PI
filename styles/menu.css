@@ -16,7 +16,7 @@ nav.lista-menu h1:hover{
 nav.lista-menu h1{
     font-weight: normal;
     color: black;
-    font-size: 45px;
+    font-size: 30px;
     text-transform: uppercase;
 }
 nav.lista-menu a {
@@ -28,7 +28,7 @@ nav.lista-menu a {
     min-height: 1px;
 }
 .sair{
-    font-size: 35px;
+    font-size: 25px;
     color: black;
     margin-left: 245px;
 }
