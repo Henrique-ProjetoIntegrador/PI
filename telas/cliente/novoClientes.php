@@ -19,7 +19,11 @@
 </header>
 
 <main>
+    <div id="area"> 
+    <h1>NOVO CLIENTE</h1>
     <form class="formulario">
+        <fieldset>
+       
             <label for="idClient">idCliente</label>
             <input class="cadastroCliente" id="idClient" type="text" required/>
 
@@ -63,13 +67,11 @@
             <input class="infEnd" id="cep" type="text" required/>
 
             
-                <input id="salvar"  type="submit" value="SALVAR"/>
+        <input type="submit"  id="salvar"  value="SALVAR"/>
            
-            
-</form>
-            
-</main>   
-<footer>
+            </fieldset>
+    </form>
+    </div>
 
 </footer>
 </body>

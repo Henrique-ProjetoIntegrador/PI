@@ -1,49 +1,48 @@
+h1{
+    margin-bottom: 10px;
+}
+#area
+{
+    
+  position:relative;
+  left:37%;
+  top:29%;
+  width:320px;
+  height:270px;
+}
 .formulario{
-    background: #E14734;
-    margin-top: 100px;
-    margin: 100px auto;
-    width: 812px;
-    padding: 5em;;
-    border: 2px solid black;
-    border-radius: 1em;
+    
+    position:absolute;
+  display:block;
 }
-form div + div {
-    margin-top: 1em;
+.formulario input
+{
+
+  left:95px;
+  top:23px;
+  width:600px;
 }
-label {
-    display: inline-block;
-    width: 90px;
-    text-align: right;
+
+fieldset
+{
+
+    
+  width:300px;
+  height:250px;
 }
-input, textarea {
-    font: 1em ;
-    margin-bottom: 15px;
-    width: 300px;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    border: 3px solid black;
+legend
+{
+  font-style:bold;
+  font-family: “Segoe UI”,”Arial”,”Times New Roman”;
 }
+label{
+    
+  left:19px;
+  margin-right:5px;
+    display: block;
+    margin-top: 10px;
+}
+
 #salvar{
-    margin: 20px 191px;
-    width: 400px;
-
-    padding: 10px 10px 10px 0;
-    background: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    font-weight: bolder;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    transition: 1s background;
-    border: 3px solid black;
-}
-#salvar:hover{
-    background: #EA0000;
-    transform: scale(1.1);
-
-}
-input:focus, textarea:focus {
-    background-color:#D6D6D6;
-    color: #6D6D6D;
-    border-bottom:1px solid #EA0000;
+    margin-top: 10px;
 }

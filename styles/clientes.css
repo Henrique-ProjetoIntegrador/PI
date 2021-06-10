@@ -1,32 +1,14 @@
-
-#BotaoClientes ul {
-    padding:0px;
-    margin:0px;
-    list-style:none;
-    
+body{
+    background: #e5e5e5;
 }
-#BotaoClientes ul li { 
-    display: inline; 
-    
+.btn-danger{
+    background: #e14734;
+    box-shadow: 5px 5px #b5aeae;
+    border-radius: 0px;
+    color: black;
 }
-#BotaoClientes ul li a {
-    padding: 20px 60px;
-    display: list-item;
-    background-color: #E14734;
-    color: #333;
-    text-decoration: none;
-    border: 2px solid black;
-    margin: 159px;
-    transition: 1s background;
-    margin-left: 998px;
-    margin-top: 237px;
-    margin-bottom: -391px;
-}
-#BotaoClientes ul li a:hover {
-    background-color:#D6D6D6;
-    color: #6D6D6D;
-    border-bottom:3px solid #EA0000;
-}
-.botaonovo{
-    padding: 100px;
+.btn-danger:hover{
+    background: #a92818;
+    box-shadow: 5px 5px #b5aeae;
+    border-radius: 0px
 }
