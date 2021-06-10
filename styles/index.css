@@ -19,58 +19,29 @@ body{
     color: #000000;
     font-weight: bold;
 }
-.imagem-usuarios img{
-    width: 47%;
-    position: relative;
-    margin-top: 2%;
-}
-figcaption.leg-usuarios{
-    margin-top: 6%;
-}
-.imagem-clientes img{
-    position: relative;
-    width: 70%;
-    margin-top: 16%;
-    left: -4%;
-}
 
-
-figcaption.leg-clientes{
-    margin-top: -1%;
-    left: -9%;
-    position: relative;
+.mod-icon {
+    color: black;
+    width:50%;
+    font-size: 800%;
 }
-.imagem-veiculos img{
-    width: 109%;
-    margin-top: -3%;
-    left: 2%;
-    position: relative;
+.mod-clientes{
+    color: black;
+    width: 50%;
+    font-size: 800%;
 }
-
-figcaption.leg-veiculos{
-    margin-top: -17%;
-    position: relative;
-    left: 5%;
+.mod-veiculo{
+    color: black;
+    width: 50%;
+    font-size: 800%;  
 }
-.imagem-pecas img{
-    position: relative;
-    width: 62%;
-    margin-top: 16%;
-    left: 12%;
+.mod-orcamento{
+    color: black;
+    width: 50%;
+    font-size: 800%;
 }
-figcaption.leg-pecas{
-    margin-top: 7%;
-    position: relative;
-    left: 9%;
-}
-.imagem-orcamentos img{
-    position: relative;
-    width: 51%;
-    margin-top: 22%;
-    left: 4%;
-}
-figcaption.leg-orcamentos{
-    margin-top: 4%;
-    position: relative;
-    left: -3%;
+.mod-pecas{
+    color: black;
+    width: 50%;
+    font-size: 800%;
 }
