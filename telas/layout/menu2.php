@@ -15,7 +15,7 @@
                 <li><a href="telas/clientes.html">CLIENTES</a></li>
                 <li><a href="veiculos.html">VEÍCULOS</a></li>
                 <li><a href="orcamentos.html">ORÇAMENTOS</a></li>
-                <li><a href="pecas.html">PEÇAS</a></li>
+                <li><a href="telas/pecas.php">PEÇAS</a></li>
         </ul>
     </nav>
 </header>

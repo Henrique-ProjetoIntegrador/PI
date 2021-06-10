@@ -9,7 +9,6 @@
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
     <link rel="stylesheet" href="../../styles/veiculo.css">
-    <link rel="stylesheet" href="../../styles/menu.css"/>
     <title>Veiculos</title>
 </head>
 <body>
