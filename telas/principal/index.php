@@ -9,7 +9,6 @@
     ?>
     <link rel="stylesheet" href="../../styles/menu.css">
     <link rel="stylesheet" href="../../styles/index.css">
-    <script src="https://kit.fontawesome.com/86f0db0995.js" crossorigin="anonymous"></script>
     <title>Tela Principal</title>
 </head>
 <body>
@@ -25,34 +24,34 @@
 
     <div class="imagem-usuarios col-sm-4">
         <figure>
-            <a href="usuario.html"><i class="fas fa-user mod-icon" alt="Ícone usuários"></a></i>
+            <a href="../usuario/index.php"><i class="fas fa-user mod-icon" alt="Ícone usuários"></i></a>
              <figcaption class="figure-caption">GERENCIAMENTO DE USUÁRIOS</figcaption>
     </figure>
     </div>
 
     <div class="imagem-clientes col-sm-4">
         <figure>
-            <a href="../cliente/clientes.php"><i class="fas fa-users mod-clientes" alt="Ícone Clientes."></i></a>
+            <a href="../cliente/index.php"><i class="fas fa-users mod-clientes" alt="Ícone Clientes."></i></a>
             <figcaption class="figure-caption">GERENCIAMENTO DE CLIENTES</figcaption>
         </figure>
     </div>
 
     <div class="imagem-veiculos col-sm-2">
         <figure class="figure">
-            <a href="../veiculo/veiculo.php"><i class="fas fa-car mod-veiculo" alt="Ícone veículo"></a></i>
+            <a href="../veiculo/index.php"><i class="fas fa-car mod-veiculo" alt="Ícone veículo"></i></a>
             <figcaption class="figure-caption">GERENCIAMENTO DE VEÍCULOS</figcaption>
         </figure>
     </div>
 
 <div class="imagem-pecas col-sm-6">
     <figure>
-        <a href="pecas.html"><i class="fas fa-wrench mod-pecas"alt="Ícone peças"></a></i>
+        <a href="../pecas/index.php"><i class="fas fa-wrench mod-pecas" alt="Ícone peças"></i></a>
         <figcaption class="figure-caption">GERENCIAMENTO DE PEÇAS</figcaption>
     </figure>
 </div>
 <div class="imagem-orcamentos col-sm-4">
         <figure class="figure">
-            <a href="orcamentos.html"><i class="fas fa-file-invoice-dollar mod-orcamento" alt="Ícone Orçamentos"></a></i>
+            <a href="../orcamento/index.php"><i class="fas fa-file-invoice-dollar mod-orcamento" alt="Ícone Orçamentos"></i></a>
             <figcaption class="figure-caption">GERENCIAMENTO DE ORÇAMENTOS</figcaption>
         </figure>
 </div>
