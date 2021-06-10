@@ -5,8 +5,8 @@
     <?php
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
-    <link rel="stylesheet" href="../styles/menu.css"/>
-    <link rel="stylesheet" href="../styles/novoClientes.css"/>
+    <link rel="stylesheet" href="../../styles/menu.css"/>
+    <link rel="stylesheet" href="../../styles/novoClientes.css"/>
     <title>HOME</title>
 </head>
 <body>
