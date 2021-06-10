@@ -12,3 +12,8 @@ body{
     box-shadow: 5px 5px #b5aeae;
     border-radius: 0px
 }
+
+.veiculo{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

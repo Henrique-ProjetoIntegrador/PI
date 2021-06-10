@@ -7,6 +7,7 @@
     ?>
     <link rel="stylesheet" href="../../styles/menu.css"/>
     <link rel="stylesheet" href="../../styles/novoClientes.css"/>
+
     <title>HOME</title>
 </head>
 <body>
@@ -19,57 +20,120 @@
 </header>
 
 <main>
-    <form class="formulario">
-            <label for="idClient">idCliente</label>
-            <input class="cadastroCliente" id="idClient" type="text" required/>
+<h1>NOVO CLIENTE</h1>
+    <div id="areas"> 
+        <form class="formularios">
+            <div class="container">
+                <div class="row">
+                    <div class="campos col-sm-8 text-center">
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="idClient" class="message col-sm-3">idCliente</label>
+                                <input class="form form-control form-control-sm col-sm-5" id="idClient" type="text" required/>
+                            </div>
+                        </div>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="Data de Cadastro" class="col-sm-3">Data de Cadastro</label>
+                                <input class="form form-control form-control-sm col-sm-5"   id="Data de Cadastro" type="date" required/>
+                            </div>
+                        </div>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="Nome" class="col-sm-3">Nome</label>
+                                <input class="form form-control form-control-sm col-sm-5"    id="Nome" type="text" required/>
+                            </div>
+                        </div>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="cpf" class="col-sm-3">CPF</label>
+                                <input class="form form-control form-control-sm col-sm-5"  id="cpf" type="text" required/>
+                            </div>
+                        </div>
 
-            <label for="Data de Cadastro">Data de Cadastro</label>
-            <input class="cadastroCliente"   id="Data de Cadastro" type="email" required/>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="rg" class="col-sm-3">RG</label>
+                                <input class="form form-control form-control-sm col-sm-5"  id="rg" type="text" required/>
+                            </div>
+                        </div>
 
-            <label for="Nome">Nome</label>
-            <input class="InfPessoais"   id="Nome" type="text" required/>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="nascimento" class="col-sm-3">Nascimento</label>
+                                <input class="form form-control form-control-sm col-sm-5"  id="nascimento" type="data" required/>
+                            </div>
+                        </div>
 
-            <label for="cpf">CPF</label>
-            <input class="InfPessoais" id="cpf" type="text" required/>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="telefone" class="col-sm-3">telefone</label>
+                                <input class="form form-control form-control-sm col-sm-5"  placeholder="(DDD)x xxxx-xxxx"  id="telefone" type="tel" required/>
+                             </div>
+                        </div>
 
-            <label for="rg">RG</label>
-            <input class="InfPessoais" id="rg" type="text" required/>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="email" class="col-sm-3">E-mail</label>
+                                <input class="form form-control form-control-sm col-sm-5"  placeholder="email@dominio.com" id="email" type="email" required/>
+                            </div>
+                        </div>
 
-            <label for="nascimento">Nascimento</label>
-            <input class="InfPessoais" id="nascimento" type="data" required/>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="endereco" class="col-sm-3">Endereço</label>
+                                <input class="form form-control form-control-sm col-sm-5"  id="endereco" type="text" required/>
+                            </div>
+                        </div>
 
-            <label for="telefone">telefone</label>
-            <input class="infContato" placeholder="(DDD)x xxxx-xxxx"  id="telefone" type="tel" required/>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="numero" class="col-sm-3">Numero</label>
+                                <input class="form form-control form-control-sm col-sm-5"  id="numero" type="text" required/>
+                            </div>
+                        </div>
 
-            <label for="email">E-mail</label>
-            <input class="infContato" placeholder="email@dominio.com" id="email" type="email" required/>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="complemento" class="col-sm-3">Complemento</label>
+                                <input class="form form-control form-control-sm col-sm-5"  id="complemento" type="text" required/>
+                            </div>
+                        </div>
 
-            <label for="endereco">Endereço</label>
-            <input class="infEnd" id="endereco" type="text" required/>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="cidade" class="col-sm-3">Cidade</label>
+                                <input class="form form-control form-control-sm col-sm-5"  id="cidade" type="text" required/>
+                            </div>
+                        </div>
 
-            <label for="numero">Numero</label>
-            <input class="infEnd" id="numero" type="text" required/>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="UF" class="col-sm-3">UF</label>
+                                <input class="form form-control form-control-sm col-sm-5"  id="uf" type="text" required/>
+                            </div>
+                        </div>
 
-            <label for="complemento">Complemento</label>
-            <input class="infEnd" id="complemento" type="text" required/>
-
-            <label for="cidade">Cidade</label>
-            <input class="infEnd" id="cidade" type="text" required/>
-
-            <label for="UF">UF</label>
-            <input class="infEnd" id="uf" type="text" required/>
-
-            <label for="cep">CEP</label>
-            <input class="infEnd" id="cep" type="text" required/>
-
-            
-                <input id="salvar"  type="submit" value="SALVAR"/>
-           
-            
-</form>
-            
-</main>   
-<footer>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="cep" class="col-sm-3">CEP</label>
+                                <input class="form form-control form-control-sm col-sm-5"  id="cep" type="text" required/> 
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="option col-sm-3 offset-1">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button class="btn btn-danger btn-lg btn-block"> Pesquisar </button>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
 
 </footer>
 </body>

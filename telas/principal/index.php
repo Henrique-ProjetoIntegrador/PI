@@ -102,7 +102,7 @@
     </div>
     <div class="imagem-veiculos col-lg-4 ">
         <figure class="figure">
-            <a href="../veiculo/veiculo.php"><img src="../../icones/veiculo.png" class="figure-img img-fluid rounded" alt="Ícone veículo"></a>
+            <a href="../veiculo/index.php"><img src="../../icones/veiculo.png" class="figure-img img-fluid rounded" alt="Ícone veículo"></a>
             <figcaption class="legenda-veiculos figure-caption">GERENCIAMENTO DE VEICULOS</figcaption>
         </figure>
     </div>
