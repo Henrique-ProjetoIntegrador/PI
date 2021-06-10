@@ -9,10 +9,10 @@
                     </div>
 
                    
-                    <div class="col-2">
+                    <div class="col-sm-2">
                         <li><a href="../cliente/"> <h1>clientes</h1></a></li>
                     </div>
-                    <div class= "col-3">
+                    <div class= "col-sm-3">
                         <li><a href="../veiculo/index.php"> <h1>veículos</h1></a></li>
 
                     </div>
