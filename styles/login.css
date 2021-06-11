@@ -1,7 +1,7 @@
 /*Geral*/
 * { /* Todos os elementos*/
     margin: 0; /*Tirar todas as margens*/
-    box-sizing: border-box; /*Box são do tamanho da borda*/ 
+    box-sizing: border-box; /*Box sÃ£o do tamanho da borda*/ 
     color: #ffffff; /*Setando a cor de todos os elementos*/
     width: 100%; /*Largura*/
 }
@@ -41,31 +41,36 @@ label, input {
 
 label {
     font-family: Aldrich; /*Fonte*/
+    margin-left: -4%;
 }
 
-input { /*Nos botões*/
+input { /*Nos botÃµes*/
+    width: 137%;
     border-bottom: 2px solid #323232; /*Borda no fundo*/
     padding: 10px; /*Input longe das bordas*/
     font-size: 2rem; /*Fonte tamanho*/
     margin-bottom: 25px; /*Margem pra afastar do elementos*/
     color: #E5E5E5; /*Cor*/
+    margin-left: -22%;
 }
 
 input[type="submit"]{ /*Muda so o submit*/
     text-align: center; /*Texto centralizado*/
-    text-transform: uppercase; /*Todas as letras são maiusculo*/
+    text-transform: uppercase; /*Todas as letras sÃ£o maiusculo*/
     font-weight: bold; /*Fonte em negrito*/
     height: 82px; /*Altura*/
     background-color: #e14734; /*Cor*/
-    cursor: pointer; /*Aparece mãozinha no botão*/
+    cursor: pointer; /*Aparece mÃ£ozinha no botÃ£o*/
     width: 100%; /*Largura*/
     box-shadow: 5px 5px #b5aeae; /*Efeito de sombra*/
     color: black; /*Cor*/
+    margin-left: -17px;
 }
 
 input[type="submit"]:hover{ /*Muda so o submit*/
     background-color: #a92818; /*Muda a cor quando passa o mouse*/
     transition: .5s; /*Muda a cor do submit com o tempo de 5s*/
+    /* margin-left: 50%; */
 }
 
 input[type="usuario"]{ /*Muda so o usuario*/
@@ -74,8 +79,16 @@ input[type="usuario"]{ /*Muda so o usuario*/
     box-shadow: 5px 5px #b5aeae; /*Efeito de sombra*/
 }
 
-input[type="password"]{ /*Muda so o password*/
+input[type="senha"]{ /*Muda so o password*/
     color: #242424; /*Cor*/
     padding: .6em .7em; /*Distancia dos elemntos da borda*/
     box-shadow: 5px 5px #b5aeae; /*Efeito de sombra*/
+}
+
+.alert{/*Alteração alert senha/usuario inválidos*/
+    position: relative;
+    padding: .50rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
 }
