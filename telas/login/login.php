@@ -23,16 +23,15 @@ session_start();
         </form>
     </div>
     <div class="row">
-        <div class="alert alert-danger text-center col-sm-4 offset-4" role="alert">
                 <?php              
                     if (isset($_SESSION['erroLogin'])){
-                            echo $_SESSION['erroLogin']; 
-                            unset($_SESSION['erroLogin']);                    
-                    }             
-                ?>
-        </div>
+                            echo '<div class="alert alert-danger col-sm-4 offset-4 text-center" role="alert">';
+                            echo $_SESSION['erroLogin'];      
+                            unset($_SESSION['erroLogin']);
+                            echo '</div>';               
+                    }
+                ?>        
     </div>
-    <main>
-    </main>
+
 </body>
 </html>
