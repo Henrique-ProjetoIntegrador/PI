@@ -1,3 +1,6 @@
+<?php
+    include '../../includes/verificaSeLogado.php';
+?>
 <!doctype html>
 <html lang="pt-br">
 <head>

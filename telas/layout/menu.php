@@ -24,7 +24,7 @@
                     </div>
                     
                     <div class ="col-sm-3 offset-9">
-                        <a href="" class="sair"><u>Sair</u></a>
+                        <a href="../sair.php" class="sair"><u>Sair</u></a>
                     </div>
                 </ul>
             </nav>
