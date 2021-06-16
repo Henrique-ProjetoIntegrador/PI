@@ -21,3 +21,12 @@
 .table{
     margin-top: 10px;
 }
+a{
+    text-decoration: none;
+    color: black;
+
+}
+a:hover{
+    text-decoration: none;
+    color: white;  
+}

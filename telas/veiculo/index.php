@@ -25,8 +25,8 @@
 <br>
     <div class="container">
         <div class="row">
-            <div class="header-veiculo col-sm-12">
-                <h1 class="col-6 offset-3 text-center">Veículo</h1>
+            <div class="header-veiculo col-sm-8">
+                <h1 class="col-6 offset-3 text-center">VEÍCULOS</h1>
             </div>
 
             <div class="group-veiculo col-sm-12">
@@ -65,15 +65,15 @@
                     <div class="option col-3 offset-1">
                         <div class="row">
                             <div class="col-12">
-                                <button class="btn btn-danger btn-lg btn-block"> Pesquisar </button>
+                            <a href="pesquisarVeiculo.php"><button class="btn btn-danger btn-lg btn-block"> Pesquisar </a></button>
                                 <br>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-danger btn-lg btn-block"> Novo </button>
+                                <a href="novoVeiculo.php"><button class="btn btn-danger btn-lg btn-block"> Novo</a></button>
                                 <br>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-danger btn-lg btn-block"> Voltar </button>
+                                <a href="../principal/index.php"><button class="btn btn-danger btn-lg btn-block"> Voltar</a></button>
                                 <br>
                             </div>
                         </div>
