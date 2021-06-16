@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- Alerta de remover clientes -->
-    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#remover"> 
+    <button type="button"class="btn btn-danger btn-lg btn-block"data-toggle="modal" data-target="#remover"> 
         REMOVER
     </button>
 
@@ -41,7 +41,7 @@
     <br>
 
     <!-- Alerta de Confirmação exclusão de clientes-->
-    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#confirmacao-remover"> 
+    <button type="button"class="btn btn-danger btn-lg btn-block"data-toggle="modal" data-target="#confirmacao-remover"> 
     REMOVER 
     </button>
 
@@ -66,9 +66,12 @@
     <br>
 
     <!-- Alerta de Confirmação Salvar-->
-    <button type= "button"class="btn btn-danger "data-toggle="modal" data-target="#salvar">
+    
+    <button type="button"class="btn btn-danger btn-lg btn-block"data-toggle="modal" data-target="#salvar">
     SALVAR
     </button> 
+    
+  
 
     <div class="modal" id= "salvar" tabindex="-1" role="dialog">
         <div class= "modal-dialog" role="document">

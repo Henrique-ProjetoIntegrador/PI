@@ -10,5 +10,15 @@ body{
 .btn-danger:hover{
     background: #a92818;
     box-shadow: 5px 5px #b5aeae;
-    border-radius: 0px
+    border-radius: 0px;
 }
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+

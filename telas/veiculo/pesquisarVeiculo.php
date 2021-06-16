@@ -81,7 +81,7 @@
                             <br>
                         </div>
                         <div class="col-sm-12">
-                            <button class="btn btn-danger btn-lg btn-block"> Voltar </button>
+                           <a href="../veiculo/"><button class="btn btn-danger btn-lg btn-block"> Voltar </a></button>
                             <br>
                         </div>
                     </div>

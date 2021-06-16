@@ -63,7 +63,6 @@
                     </table>
                     <div class="option col-3 offset-1">
                         <div class="row">
-                            
                             <div class="col-12">
                                 <a href="novoClientes.php" class="btn btn-danger btn-lg btn-block">Novo</a>
                                 <br>
