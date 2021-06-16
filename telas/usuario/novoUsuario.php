@@ -1,3 +1,4 @@
+
 <?php
     include '../../includes/verificaSeLogado.php';
 ?>
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="../../styles/novoUsuario.css"/>
     <link rel="stylesheet" href="../alerts/modal.css">
 
-    <title>HOME</title>
+    <title>Novo Usuário</title>
 </head>
 <body>
 <header>
@@ -27,32 +28,40 @@
             <h1 class="col-6 offset-3 text-center">Novo Usuário</h1>
         </div>
     </div>
-    <div class="row">
+    <form method="POST" action="processaNovoUsuario.php"> 
+    <div class="row">       
         <div class="formulario col-sm-4 offset-4">
-            <form>  
                 <div class="form-group">
                     <label for="nome">Nome:</label>
-                    <input type="text" class="form-control" id="nome" aria-describedby="nome" placeholder="Digite o nome">
+                    <input type="text" name="nome" class="form-control" id="nome" aria-describedby="nome" placeholder="Digite o nome">
                 </div>
                 <div class="form-group">
                     <label for="senha">Senha:</label>
-                    <input type="password" class="form-control" id="senha" placeholder="Senha">
+                    <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha">
                 </div>
                 <div class="form-group">
                     <label for="categoria" class=col-sm-3>CATEGORIA:</label>
-                    <select class="form-control" id="categoria">
+                    <select class="form-control" name="funcao" id="categoria">
                         <option>Selecione uma opção</option>
                         <option>Administrador</option>
                         <option>Mecânico</option>  
                     </select> 
-                </div>
-            </form>
+                </div>          
         </div>
         <div class="options-buttons col-sm-2">
             <div class= "row">
                 <div class="col-sm-12">
-                    <button class="btn btn-danger btn-lg btn-block"data-toggle="modal" data-target="#salvar">Salvar</button>                          
-                        <div class="modal" id= "salvar" tabindex="-1" role="dialog">
+                    <button type="submit"class="btn btn-danger btn-lg btn-block"data-toggle="modal"data-target="#salvar">Salvar</button>                          
+                    <br>
+                </div>
+                <div class="col-sm-12">
+                    <button class="btn btn-danger btn-lg btn-block">Cancelar</button>
+                </div>
+            </div>
+        </div>      
+    </div> 
+        </form> 
+                    <!-- <div class="modal" id= "salvar" tabindex="-1" role="dialog">
                             <div class= "modal-dialog" role="document">
                                 <div class= "modal-content">
                                     <div class="modal-header">
@@ -70,16 +79,9 @@
                                 </div>
                             </div>
                         </div>
-                    
-                    
-                    <br>
-                </div>
-                <div class="col-sm-12">
-                    <button class="btn btn-danger btn-lg btn-block">Cancelar</button>
-                </div>
-            </div>
-        </div>      
-    </div>     
+                 
+                     -->
+                       
         
         
 </body>
