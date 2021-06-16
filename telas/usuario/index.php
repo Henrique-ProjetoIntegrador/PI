@@ -28,39 +28,39 @@
                 <h1 class="col-6 offset-3 text-center">USUÁRIOS</h1>
             </div>
 
-            <div class="group-Clientes col-sm-12">
+            <div class="group-Clientes col-sm-5 offset-2">
                 <div class="row">
-                    <table class="table table-hover table-striped text-center col-sm-8">
-                        <thead class="thead-dark">
+                <div class="table-responsive">
+                <table class="table table-striped">
+                <thead class="thead-dark">
                         <tr>
-                            <th style="width: 600px">Usuários</th>
-                            
+                        
+                        <th scope="col">ID</th>
+                        <th scope="col">Login</th>
+                        <th scope="col">Função</th>
+                        <th scope="col"colspan="2" >Ação</th> 
                         </tr>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <th scope="row">Luiz de Oliveira</th>
-                            
-                        </tr>
-                        <tr>
-                            <th scope="row">Ozeias da Silva</th>
-                            
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                           
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            
+                        <th> </th>
+                        <td>Mark </td>
+                        <td>Otto</td>
+                        <td><a href="">editar</a></td>
+                        <td><a href="">excluir</a></td>
                         </tr>
 
-                        </tbody>
+                        <tr>
+                        <th></th> 
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        </tr>
+
+        
+                                             
+                    </tbody>
                     </table>
+                       
                     <div class="option col-3 offset-1">
                         <div class="row">
                             
