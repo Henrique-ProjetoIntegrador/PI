@@ -94,7 +94,7 @@
                     <br>
                 </div>
                 <div class="col-sm-12">
-                    <button class="btn btn-danger btn-lg btn-block">Cancelar</button>
+                  <a href="../veiculo/novoVeiculo.php"><button class="btn btn-danger btn-lg btn-block">Cancelar</a></button>
                 </div>
             </div>
         </div>      
