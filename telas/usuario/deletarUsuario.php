@@ -20,7 +20,7 @@ $conn = getConnection();
     <body>
 
     <?php
-
+    
     $sql = "DELETE FROM usuario WHERE id = '{$_GET['id']}'";
     $stmt = $conn->prepare($sql); // prepara a query para ser executada
     $stmt->execute(); // realiza a execução da query

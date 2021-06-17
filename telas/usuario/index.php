@@ -28,10 +28,10 @@
     <div class="container">
         <div class="row">
             <div class="header-usuarios col-sm-8">
-                <h1 class="col-6 offset-3 text-center">USUÁRIOS</h1>
+                <h2 class="text-center">Usuários Cadastrados</h2>
             </div>
 
-            <div class="group-usuarios col-sm-5 offset-2">
+            <div class="group-usuarios col-sm-6 offset-1">
                 <div class="row">
                     <div class="table-responsive">               
                         <table class="table table-striped text-center">
@@ -53,8 +53,8 @@
                                     echo "<tr>";
                                         echo "<td>".$res['login']." </td>";
                                         echo "<td>".$res['funcao']." </td>";
-                                        echo "<td><a href=''>Editar<a/></td>";
-                                        echo "<td><a href='deletarUsuario.php?id=".$res['id']."'>Excluir<a/></td>";
+                                        echo "<td><a href='editarUsuario.php?id=".$res['id']."'>Editar<a/></td>";
+                                        echo "<td><a href='deletarUsuario.php?id=".$res['id']."' class=''>Excluir<a/></td>";
                                     echo "</tr>";
 
                                 }
@@ -81,9 +81,5 @@
     </div>
        
     </main>   
-    <footer>
-
-    </footer>
-
 </body>
 </html>
