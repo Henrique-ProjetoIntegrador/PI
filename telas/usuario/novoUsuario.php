@@ -42,14 +42,11 @@
                 <div class="form-group">
                     <label for="categoria" class=col-sm-3>CATEGORIA:</label>
                     <select class="form-control" name="funcao" id="categoria">
-                        <option>Selecione uma opção</option>
+                        <option hidden>Selecione uma opção</option>
                         <option>Administrador</option>
                         <option>Mecânico</option>  
                     </select> 
                 </div>
-
-                
-
                 <?php
 
                 // o que eu fiz, ao invez de criar a classe do alerta varias vezes la na session
@@ -83,7 +80,7 @@
                     <br>
                 </div>
                 <div class="col-sm-12">
-                    <button type= "button"class="btn btn-danger btn-lg btn-block">Cancelar</button>
+                    <a href ="../usuario/index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</a></button>
                 </div>
             </div>
         </div>      
