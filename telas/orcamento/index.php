@@ -77,7 +77,7 @@
                     <div class="option col-3 offset-1">
                         <div class="row">
                         <div class="col-12">
-                                <a href="novaPeca.php" class="btn btn-danger btn-lg btn-block">Salvar</a>
+                                <a href="orcamentoSalvo.php" class="btn btn-danger btn-lg btn-block">Salvar</a>
                                 <br>
                             </div>
                             <div class="col-12">
