@@ -77,11 +77,11 @@
                     <div class="option col-3 offset-1">
                         <div class="row">
                         <div class="col-12">
-                                <a href="novaPeca.php" class="btn btn-danger btn-lg btn-block">SALVAR</a>
+                                <a href="novaPeca.php" class="btn btn-danger btn-lg btn-block">Salvar</a>
                                 <br>
                             </div>
                             <div class="col-12">
-                                <a href="../principal/index.php" class="btn btn-danger btn-lg btn-block">CANCELAR</a>
+                                <a href="../principal/index.php" class="btn btn-danger btn-lg btn-block">Cancelar</a>
                                 <br>
                             </div>
                         </div>
