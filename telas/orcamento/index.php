@@ -11,7 +11,7 @@
     <?php
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
-    <link rel="stylesheet" href="../../styles/orcamentoVeiculo.css">
+    <link rel="stylesheet" href="../../styles/orcamento.css">
     <link rel="stylesheet" href="../alerts/modal.css">
     <title>Novo orçamento</title>
 </head>
