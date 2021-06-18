@@ -104,18 +104,6 @@
                                     <th style="width: 320px">VALOR</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <th scope="row">Par de pastilha de frio</th>
-                                    <th scope="row">R$ 65,00</th>
-                                </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <th scope="row">Filtro de oléo</th>
-                                <th scope="row">R$ 85,00</th>
-                            </tr>
-                            </tbody>
                         </table>
                         <div class="option col-3 offset-1">
                             <div class="row">
