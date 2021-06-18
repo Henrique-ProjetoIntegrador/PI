@@ -21,10 +21,7 @@
     include_once "../layout/menu.php";
 
 ?>
-</header>
 
-<main>
-</header>
     <div class="container">
         <div class="row-2">
             <div class="header-veiculo col-sm-12">

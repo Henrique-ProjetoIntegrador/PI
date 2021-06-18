@@ -55,7 +55,6 @@ $conn = getConnection();
     $sql= "INSERT INTO usuario (login, senha, funcao) VALUES ('$nome', '$senha', '$funcao')";
     $stmt = $conn->prepare($sql); // prepara a query para ser executada
     $stmt->execute(); // realiza a execução da query
-    $resultado = $stmt->fetchAll(); // pega o resultado da execução da query
 
     if($stmt){ ?>
         <div class="modal" id= "salvar" tabindex="-1" role="dialog">

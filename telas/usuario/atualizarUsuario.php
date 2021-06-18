@@ -29,8 +29,6 @@ $conn = getConnection();
 $sql = "UPDATE usuario SET login = '".$login."', senha = '".$senha."', funcao = '".$funcao."' WHERE id =".$id; 
 $stmt = $conn->prepare($sql); // prepara a query para ser executada
 $stmt->execute(); // realiza a execução da query
-$resultado = $stmt->fetchAll(); // pega o resultado da execução da query
-
 // header('Location: index.php');
 
 if($stmt){ ?>

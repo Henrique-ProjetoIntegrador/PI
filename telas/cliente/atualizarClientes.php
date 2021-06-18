@@ -34,8 +34,6 @@ $conn = getConnection();
 $sql = "UPDATE clientes SET nome = '".$nome."', cpf = '".$cpf."', data_cadastro = '".$data_cadastro."', telefone = '".$telefone."', celular ='".$celular."', nascimento = '".$nascimento."', endereco = '".$endereco."' WHERE id =".$id; 
 $stmt = $conn->prepare($sql); // prepara a query para ser executada
 $stmt->execute(); // realiza a execução da query
-$resultado = $stmt->fetchAll(); // pega o resultado da execução da query
-
 // header('Location: index.php');
 
 if($stmt){ ?>
