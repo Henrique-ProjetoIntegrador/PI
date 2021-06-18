@@ -23,6 +23,7 @@ if (session_status() === PHP_SESSION_NONE){
 
             }elseif(isset($resultado)){
                 $_SESSION['status'] = true;
+                $_SESSION['id_usuario']=$resultado[0]['id'];
                 header('Location: ../principal/index.php');
             }
             else{

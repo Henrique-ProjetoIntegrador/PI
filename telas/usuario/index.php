@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../styles/menu.css"/>
     <link rel="stylesheet" href="../../styles/usuario.css"/>
 
-    <title>CLIENTES</title>
+    <title>Usuários</title>
 </head>
 <body>
 <header>
@@ -55,8 +55,7 @@
                                         echo "<td>".$res['funcao']." </td>";
                                         echo "<td><a href='editarUsuario.php?id=".$res['id']."'>Editar<a/></td>";
                                         echo "<td><a href='deletarUsuario.php?id=".$res['id']."' class=''>Excluir<a/></td>";
-                                    echo "</tr>";
-
+                                        echo "</tr>";
                                 }
 
                               ?>                 

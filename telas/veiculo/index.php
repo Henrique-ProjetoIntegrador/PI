@@ -21,7 +21,53 @@
         include_once "../layout/menu.php";
 
     ?>
-</header>
+     <main>
+     </header>
+    <div class="container">
+        <div class="row">
+            <div class="header-veiculos col-sm-8">
+                <h2 class="text-center">Veículos Cadastrados</h2>
+            </div>
+
+            <div class="group-veiculos col-sm-6 offset-1">
+                <div class="row">
+                    <div class="table-responsive">               
+                        <table class="table table-striped text-center">
+                            <thead class="thead-dark">
+                                <tr>                      
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col">Placa</th>
+                                    <th scope="col"colspan="2">Ação</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>        
+                    </div>
+                </div>
+            </div>
+            <div class="option col-3 offset-1">
+                <div class="row">  
+                    <div class="col-12">
+                        <a href="pesquisarVeiculo.php" class="btn btn-danger btn-lg btn-block">Pesquisar</a>
+                        <br>
+                    </div>
+                    <div class="col-12">
+                        <a href="novoVeiculo.php" class="btn btn-danger btn-lg btn-block">Novo</a>
+                        <br>
+                    </div>
+                    <div class="col-12">
+                        <a href="../principal/index.php" class="btn btn-danger btn-lg btn-block">Voltar</a>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>     
+    </main>   
+</body>
+</html>
+<!-- </header>
 <br>
     <div class="container">
         <div class="row">
@@ -81,6 +127,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
+    </div> -->
+<!-- </body>
+</html> -->
