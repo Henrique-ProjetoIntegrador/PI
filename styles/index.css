@@ -7,9 +7,10 @@ body{
     min-height: 1px;
 }
 .sair{
-    font-size: 35px;
+    position: relative;
+    font-size: 25px;
     color: black;
-    margin-left: 245px;
+    left: -14px;
 }
 .sair:hover{
     color: gray;
