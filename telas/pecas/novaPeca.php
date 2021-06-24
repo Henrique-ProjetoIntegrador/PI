@@ -26,19 +26,19 @@
     <div class="container">
         <div class="row-2">
             <div class="header-pecas col-sm-12">
-                <h2 class="col-6 offset-2 text-center">Editar Peças</h2>
+                <h2 class="col-6 offset-2 text-center">Nova Peça</h2>
             </div>
         </div>
-        <form method="POST"action="processaNovaPeca.php">  
+        <form method="POST" action="processaNovaPeca.php">  
         <div class="row">       
             <div class="formulario col-sm-6 offset-2">
                 <div class="form-group">
                     <label for="nome">Nome da Peça:</label>
-                    <input type= "text" name = "nome" class="form-control" id="nome"aria-describedby="nome" placeholder="Insira o nome">
+                    <input type= "text" name="nome" class="form-control" id="nome"aria-describedby="nome" placeholder="Insira o nome">
                 </div>
                 <div class="form-group">
                     <label for=preco">Preço:</label>
-                    <input type="text" name="preco" class="form-control" id="preco" placeholder="preco">
+                    <input type="price" name="preco" class="form-control" id="preco" placeholder="preco">
                 </div>
                 <div class="form-group">
                     <label for=qtd">Qtd:</label>
@@ -46,7 +46,7 @@
                 </div>  
                 <div class="form-group">
                         <label for="categoria" class=col-sm-3>CATEGORIA:</label>
-                        <select class="form-control" name="funcao" id="categoria">
+                        <select class="form-control" name="categoria" id="categoria">
                             <option hidden>Selecione uma opção</option>
                             <option>Ar Condicionado</option>
                             <option>Borracharia</option>  
@@ -58,7 +58,6 @@
                         </select> 
                     </div>
                     <?php
-
                         if(isset($_SESSION['erroCampos'])){
                             echo "<div class='alert alert-danger'>"; 
                             echo $_SESSION['erroCampos'];

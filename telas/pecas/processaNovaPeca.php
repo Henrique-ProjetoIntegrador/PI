@@ -4,6 +4,7 @@ session_start();
 include_once '../../includes/connectDb.php';
 $conn = getConnection();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -20,10 +21,9 @@ $conn = getConnection();
 </head>
 <body>
 
-    <?php 
-
+<?php 
     // ! quer dizer o contrario da logica
-    if (!isset($_POST['nome']) && !isset($_POST['categoria']) && !isset($_POST['preco']) && !isset ($_POST['qtd'])){
+    if (!isset($_POST['nome']) || !isset($_POST['categoria']) || !isset($_POST['preco']) || !isset ($_POST['qtd'])){
         echo "Campo nao existe";
         die();
     }
@@ -38,7 +38,7 @@ $conn = getConnection();
         $_SESSION['erroCampos'] =  'Favor preencher todos os campos!';
         header('Location: novaPeca.php');
     }
-    if($_POST['categoria'] ==""){
+    if($_POST['categoria'] == ""){
         $_SESSION['erroCampos'] =  'Favor preencher todos os campos!';
         header('Location: novaPeca.php');
     }
@@ -60,7 +60,8 @@ $conn = getConnection();
     $stmt = $conn->prepare($sql); // prepara a query para ser executada
     $stmt->execute(); // realiza a execução da query
 
-    if($stmt){ ?>
+if($stmt){ 
+?>
         <div class="modal" id= "salvar" tabindex="-1" role="dialog">
             <div class= "modal-dialog" role="document">
                 <div class= "modal-content">

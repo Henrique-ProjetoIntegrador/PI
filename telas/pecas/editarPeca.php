@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row-2">
             <div class="header-peca col-sm-12">
-                <h2 class="col-6 offset-2 text-center">Editar Peças</h2>
+                <h2 class="col-6 offset-2 text-center">Editar Peça</h2>
             </div>
         </div>
         <form method="POST"action="atualizarPeca.php"> 
@@ -51,7 +51,7 @@
                     <?php echo " <input type='text' name='id' class='form-control' id='id' aria-describedby='nome'  value='{$_GET['id']}' hidden"?>
                     
                         <label for="nome">nome:</label>
-                        <?php echo " <input type='text' name='login' class='form-control' id='nome' aria-describedby='nome'  value='{$nome}' placeholder='Digite o nome'>"?>
+                        <?php echo " <input type='text' name='nome' class='form-control' id='nome' aria-describedby='nome'  value='{$nome}' placeholder='Digite o nome'>"?>
                         </div>
                     <div class="form-group">
                         <label for="preco">Preço:</label>
