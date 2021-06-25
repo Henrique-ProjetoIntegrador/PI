@@ -49,7 +49,7 @@
                                     
                                     foreach($resultado as $res){
                                         echo "<tr>";
-                                            echo "<td>".$res['nome']." </td>";
+                                            echo "<td><a href='mostrarCliente.php?id=".$res['id']."'<a/>".$res['nome']."</td>";
                                             echo "<td>".$res['telefone']." </td>";
                                             echo "<td><a href='editarClientes.php?id=".$res['id']."'>Editar<a/></td>";
                                             echo "<td><a href='deletarClientes.php?id=".$res['id']."' class=''>Excluir<a/></td>";

@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row-2">
             <div class="header-veiculo col-sm-12">
-                <h2 class="col-6 offset-2 text-center">Editar Clientes</h2>
+                <h2 class="col-6 offset-2 text-center">Mostrar Clientes</h2>
             </div>
         </div>
         <form method="POST"action="atualizarClientes.php">  
@@ -55,37 +55,37 @@
                 <?php echo " <input type='text' name='id' class='form-control' id='id' value='{$_GET['id']}' hidden"?>
                     
                         <label for="nome-cliente">Nome do cliente:</label>
-                        <?php echo " <input type='text' name='nome' class='form-control' id='nome'  value='{$nome}' placeholder='Insira o nome'>"?>
+                        <?php echo " <input type='text' name='nome' class='form-control' id='nome'  value='{$nome}' disabled> "?>
                 </div>
 
                 <div class="form-group">
                     <label for="data_cadastro">Data de Cadastro:</label>
-                    <?php echo " <input type= 'datetime' name='data_cadastro' class='form-control' id='data_cadastro' value='{$data_cadastro}' placeholder ='Insira a data'>"?>  
+                    <?php echo " <input type= 'datetime' name='data_cadastro' class='form-control' id='data_cadastro' value='{$data_cadastro}' disabled>"?>  
                 </div>
                 
                 <div class="form-group">
                     <label for="cpf">CPF:</label>
-                    <?php echo " <input type='text' name='cpf' class='form-control' id='cpf' value='{$cpf}' placeholder ='Insira o CPF'>"?> 
+                    <?php echo " <input type='text' name='cpf' class='form-control' id='cpf' value='{$cpf}'disabled>"?> 
                 </div>
 
                 <div class="form-group">
                     <label for="telefone">Telefone:</label>
-                    <?php echo " <input type='tel' name='telefone' class='form-control' id='telefone' value='{$telefone}' placeholder ='Insira o telefone'>"?>
+                    <?php echo " <input type='tel' name='telefone' class='form-control' id='telefone' value='{$telefone}' disabled>"?>
                 </div>
 
                 <div class="form-group">
                     <label for="celular">Celular:</label>
-                    <?php echo " <input type='tel' name='celular' class= 'form-control' id= 'celular' value='{$celular}' placeholder ='Insira o celular'>"?>
+                    <?php echo " <input type='tel' name='celular' class= 'form-control' id= 'celular' value='{$celular}' disabled>"?>
                 </div>
 
                 <div class="form-group">
                     <label for="nascimento">Data de Nascimento:</label>
-                    <?php echo " <input type='date' name='nascimento' class= 'form-control' id='nascimento' value='{$nascimento}' placeholder='Insira a data de nascimento'>"?>
+                    <?php echo " <input type='date' name='nascimento' class= 'form-control' id='nascimento' value='{$nascimento}' disabled>"?>
                 </div>
 
                 <div class="form-group">
                     <label for="endereco">Endereço:</label>
-                    <?php echo " <input type ='text' name='endereco' class='form-control' id= 'endereco' value ='{$endereco}' placeholder 'Insira o endereço'>"?>
+                    <?php echo " <input type ='text' name='endereco' class='form-control' id= 'endereco' value ='{$endereco}' disabled>"?>
                 </div>
             <?php
                 if(isset($_SESSION['erroCampos'])){
@@ -96,16 +96,35 @@
                 }
                 ?>
             </div>
+            <!-- funfando vou volta a trabalhar aqui, finalizando meu horario de almoço bjs te amo -->
             <div class="options-buttons col-sm-2">
                 <div class= "row">
                     <div class="col-sm-12">
-                        <button type="submit"class=" btn btn-danger btn-lg btn-block">Salvar</button>                          
-                        <br>
-                    </div>
-                    <div class="col-sm-12">
-                        <a href ="../cliente/PesquisarCliente"><button type= "button"class="btn btn-danger btn-lg btn-block">Pesquisar</a></button>
+                    <?php
+                        echo "<a href='editarClientes.php?id=".$_GET['id']."' class='btn btn-danger btn-lg btn-block' >Editar</a>";                                     
+                    
+                    ?>
                     <br>
                     </div>
+                    <div class="col-sm-12">
+                    <?php
+                        echo "<a href='deletarClientes.php?id=".$_GET['id']."' class='btn btn-danger btn-lg btn-block' >Excluir</a>";                                     
+                    
+                    ?>
+                    <br>
+                    </div>
+                    <br>
+                    <div class="col-sm-12">
+                        <a href =""><button type= "button"class="btn btn-danger btn-lg btn-block">Veículos </a></button>
+                    <br>
+                    </div>
+
+                    <br>
+                    <div class="col-sm-12">
+                        <a href =""><button type= "button"class="btn btn-danger btn-lg btn-block">O.S</a></button>
+                    <br>
+                    </div>
+                   
                     <div class="col-sm-12">
                         <a href ="../cliente/index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</a></button>
                     </div>
