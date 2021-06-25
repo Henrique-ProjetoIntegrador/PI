@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row-2">
             <div class="header-veiculo col-sm-12">
-                <h2 class="col-6 offset-2 text-center">Mostrar Clientes</h2>
+                <h2 class="col-6 offset-2 text-center">Informações do Cliente</h2>
             </div>
         </div>
         <form method="POST"action="atualizarClientes.php">  
@@ -40,7 +40,6 @@
                     $stmt = $conn->prepare($sql); // prepara a query para ser executada
                     $stmt->execute(); // realiza a execução da query
                     $resultado = $stmt->fetchAll();
-
                     $nome = $resultado[0]['nome'];
                     $cpf = $resultado[0]['cpf'];
                     $data_cadastro = $resultado[0]['data_cadastro'];
@@ -96,7 +95,6 @@
                 }
                 ?>
             </div>
-            <!-- funfando vou volta a trabalhar aqui, finalizando meu horario de almoço bjs te amo -->
             <div class="options-buttons col-sm-2">
                 <div class= "row">
                     <div class="col-sm-12">
@@ -115,7 +113,10 @@
                     </div>
                     <br>
                     <div class="col-sm-12">
-                        <a href =""><button type= "button"class="btn btn-danger btn-lg btn-block">Veículos </a></button>
+                    <?php
+                        echo "<a href='veiculoCliente.php?id=".$_GET['id']."' class='btn btn-danger btn-lg btn-block' >Veículos</a>";                                     
+                    
+                    ?>
                     <br>
                     </div>
 

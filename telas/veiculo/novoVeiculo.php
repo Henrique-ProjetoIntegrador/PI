@@ -21,6 +21,9 @@
 
     ?>
 </header>
+    <?php
+        echo $_GET['id'];
+    ?>
     <div class="container">
         <div class="row-2">
             <div class="header-veiculo col-sm-12">
@@ -66,6 +69,14 @@
                     <label for="chassis"><strong>Chassis</strong></label>
                     <input type="text" class="form-control" name="chassis" id="chassis" placeholder="Chassis:">
                 </div>
+                <?php
+                if(isset($_SESSION['erroCampos'])){
+                    echo "<div class='alert alert-danger'>";
+                    echo $_SESSION['erroCampos'];
+                    echo "</div>";
+                    unset($_SESSION['erroCampos']);
+                }
+                ?>
             </div>
             <div class="options-buttons col-sm-2">
                 <div class= "row">

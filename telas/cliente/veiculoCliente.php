@@ -43,7 +43,11 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                    $query = "SELECT * FROM veiculo;";
+                                    $query = "SELECT clientes.nome , veiculo.marca , veiculo.placa, veiculo.id 
+                                    FROM veiculo 
+                                    INNER JOIN clientes on veiculo.id_clientes = clientes.id 
+                                    WHERE clientes.id = '".$_GET['id']."' 
+                                    ";
                                     $stmt = $conn->prepare($query); // prepara a query para ser executada
                                     $stmt->execute(); // realiza a execução da query
                                     $resultado = $stmt->fetchAll(); // pega o resultado da execução da query
