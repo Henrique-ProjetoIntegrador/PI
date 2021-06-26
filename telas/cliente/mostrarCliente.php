@@ -47,7 +47,6 @@
                     $celular = $resultado[0]['celular'];
                     $nascimento = $resultado[0]['nascimento'];
                     $endereco = $resultado[0]['endereco'];
-
                 ?>
 
                 <div class="form-group">
