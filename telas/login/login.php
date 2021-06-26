@@ -1,5 +1,12 @@
 <?php
-session_start();
+    session_start();
+    require '../../includes/validaAcesso.php';
+    require '../../includes/Conexao.php';   
+    $acesso = new Acesso($mysql); 
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){       
+        $acesso->validaAcesso($_POST['usuario'],$_POST['senha']);              
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -14,25 +21,17 @@ session_start();
 <body> <!-- Elementos que aparece na tela -->
     <div id="login-container"> <!-- Elementos que aparece na tela -->
     <img src="../../icones/logomarca.png" width=335 height=200>
-        <form action="validaLogin.php" method="POST"> <!-- Formulario -->
-            <label for="usuario">USUÁRIO</label>    
-            <input type="text" name="usuario" id="usuario" placeholder="Digite seu nome" autocomplete="off">
-            <label for="password">SENHA</label>
-            <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
-            <input type="submit" value="ACESSAR">
-        </form>
+        <!-- Formulario -->
+        <?php $acesso->exibeFormulario(); ?>
     </div>
     <div class="row">
-                <?php              
-                    if (isset($_SESSION['erroLogin'])){
+                <?php                                               
+                    if (isset($_SESSION['errologin'])){
                             echo '<div class="alert alert-danger col-sm-4 offset-4 text-center" role="alert">';
-                            echo $_SESSION['erroLogin'];      
-                            unset($_SESSION['erroLogin']);
+                            echo $_SESSION['erroLogin'];                            
                             echo '</div>';               
                     }
-                ?>  
-                <?php /* oi*/
-                ?>      
+                ?>                   
     </div>
 
 </body>
