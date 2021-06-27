@@ -1,7 +1,9 @@
 <?php
     include '../../includes/verificaSeLogado.php';
-    include_once '../../includes/connectDb.php';
-    $conn = getConnection(); //funcao existente no connectDb
+    require '../../includes/Conexao.php';
+    require '../../includes/ControlerSql.php';
+    $conteudo = new Controler($mysql);
+    $usuarios = $conteudo->consultaTodosUsuarios();
 ?>
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -31,7 +33,7 @@
                 </div>
                 <div class="group-usuarios col-sm-6 offset-1">
                     <div class="row">
-                        <div class="table-responsive">               
+                        <div class="table-responsive">                                    
                             <table class="table table-striped text-center">
                                 <thead class="thead-dark">
                                     <tr>                      
@@ -41,21 +43,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                        $query = "SELECT * FROM usuario;";
-                                        $stmt = $conn->prepare($query); // prepara a query para ser executada
-                                        $stmt->execute(); // realiza a execução da query
-                                        $resultado = $stmt->fetchAll(); // pega o resultado da execução da query
-                                        
-                                        foreach($resultado as $res){
-                                            echo "<tr>";
-                                                echo "<td>".$res['login']." </td>";
-                                                echo "<td>".$res['funcao']." </td>";
-                                                echo "<td><a href='editarUsuario.php?id=".$res['id']."'>Editar<a/></td>";
-                                                echo "<td><a href='deletarUsuario.php?id=".$res['id']."' class=''>Excluir<a/></td>";
-                                                echo "</tr>";
-                                        }
-                                    ?>                 
+                                    <?php foreach($usuarios as $usuario): ?>
+                                        <?php if($usuario['id'] != $_SESSION['id_usuario']): ?>                                           
+                                            <tr>
+                                                <td><?php echo $usuario['login']; ?></td>
+                                                <td><?php echo $usuario['funcao']; ?></td>
+                                                <td><a href="editarUsuario.php?id=<?php echo $usuario['id'] ?>">Editar</a></td>
+                                                <td><a href="deletarUsuario.php?id=<?php echo $usuario['id'] ?>">Excluir</a></td>
+                                            </tr>
+                                        <?php endif ?>                                        
+                                    <?php endforeach ?>                 
                                 </tbody>
                             </table>        
                         </div>

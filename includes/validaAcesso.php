@@ -58,7 +58,7 @@
                         $_SESSION['status'] = true;
                         unset($_SESSION['errologin']);
                         unset($_SESSION['tentativas']);                   
-                        $_SESSION['id_usuario']=$resultado[0]['id'];                        
+                        $_SESSION['id_usuario']=$resultado['id'];                        
                         header('Location: ../principal/index.php');
                     }else{
                         $_SESSION['errologin']= "usuário ou senha incorretos";

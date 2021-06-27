@@ -1,6 +1,16 @@
 
 <?php
-    include '../../includes/verificaSeLogado.php';
+     include '../../includes/verificaSeLogado.php';
+     require '../../includes/Conexao.php';
+     require '../../includes/ControlerSql.php';
+     $conteudo = new Controler($mysql);
+     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if($_POST['nome'] == "" || $_POST['senha'] == "" || $_POST['funcao']== ""){
+            $_SESSION['erroCampos'] =  'Favor preencher todos os campos!';
+            header('Location: novoUsuario.php');
+        }
+        $conteudo->cadastraNovoUsuario($_POST['nome'],$_POST['senha'],$_POST['funcao']);
+     }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,7 +39,7 @@
                 <h2 class="col-6 offset-2 text-center">Novo Usuário</h2>
             </div>
         </div>
-        <form method="POST"action="processaNovoUsuario.php"> 
+        <form method="POST"action="novoUsuario.php"> 
         <div class="row">       
             <div class="formulario col-sm-6 offset-2">
                     <div class="form-group">
@@ -49,8 +59,8 @@
                         </select> 
                     </div>
                     <?php
-
-                        if(isset($_SESSION['erroCampos'])){
+                       
+                        if(isset($_SESSION['erroCampos'])&& $_SESSION['erroCampos'] != ''){
                             // criando a classe alerta
                             echo "<div class='alert alert-danger'>";
                                 
@@ -71,7 +81,7 @@
                         <br>
                     </div>
                     <div class="col-sm-12">
-                        <a href ="../usuario/index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</a></button>
+                        <a href ="index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</button></a>
                     </div>
                 </div>
             </div>      

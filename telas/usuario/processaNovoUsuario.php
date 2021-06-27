@@ -49,7 +49,7 @@ $conn = getConnection();
 
    
     $nome = $_POST['nome'];
-    $senha = $_POST['senha'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $funcao = $_POST['funcao'];
 
     $sql= "INSERT INTO usuario (login, senha, funcao) VALUES ('$nome', '$senha', '$funcao')";
