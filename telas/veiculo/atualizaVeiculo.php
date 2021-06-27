@@ -1,6 +1,16 @@
 <?php
 session_start();
 
+$data_cadastro = $_POST["data_cadastro"];
+$modelo = $_POST["modelo"];
+$marca = $_POST["marca"];
+$ano = $_POST["ano"];
+$placa = $_POST["placa"];
+$chassis = $_POST["chassis"];
+$id= $_POST["id"];
+
+
+
 include_once '../../includes/connectDb.php';
 
 $conn = getConnection();
@@ -13,30 +23,30 @@ $conn = getConnection();
     include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
     <link rel="stylesheet" href="../../styles/menu.css"/>
-    <link rel="stylesheet" href="../../styles/novoCliente.css"/>
+    <link rel="stylesheet" href="../../styles/novoClientes.css"/>
     <link rel="stylesheet" href="../alerts/modal.css">
     <title>Novo Cliente</title>
 </head>
 <body>
 
 <?php
-
-$sql = "DELETE FROM veiculo WHERE id = '{$_GET['id']}'";
+$sql = "UPDATE veiculo SET modelo = '".$modelo."', marca = '".$marca."', data_cadastro = '".$data_cadastro."', ano = '".$ano."', placa ='".$placa."', chassis = '".$chassis."' WHERE id =".$id;
 $stmt = $conn->prepare($sql); // prepara a query para ser executada
 $stmt->execute(); // realiza a execução da query
+// header('Location: index.php');
 
 if($stmt){ ?>
     <div class="modal" id= "salvar" tabindex="-1" role="dialog">
         <div class= "modal-dialog" role="document">
             <div class= "modal-content">
                 <div class="modal-header">
-                    <h5 class= "modal-title">Excluir</h5>
+                    <h5 class= "modal-title">Editar</h5>
                 </div>
                 <div class="modal-body">
-                    <p>Excluído com sucesso!</p>
+                    <p>Editado com sucesso!</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="../cliente/index.php"><button type="button" class="btn btn-success">OK</button></a>
+                    <a href="../veiculo/index.php"><button type="button" class="btn btn-success">OK</button></a>
                 </div>
             </div>
         </div>
@@ -51,13 +61,13 @@ if($stmt){ ?>
         <div class= "modal-dialog" role="document">
             <div class= "modal-content">
                 <div class="modal-header">
-                    <h5 class= "modal-title">Excluir</h5>
+                    <h5 class= "modal-title">Editar</h5>
                 </div>
                 <div class="modal-body">
-                    <p>Não foi possível deletar cliente!</p>
+                    <p>Não foi possível editar cliente!</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="../cliente/index.php"><button type="button" class="btn btn-success">OK</button></a>
+                    <a href="../veiculo/index.php"><button type="button" class="btn btn-success">OK</button></a>
                 </div>
             </div>
         </div>
@@ -71,5 +81,3 @@ if($stmt){ ?>
 
 </body>
 </html>
-
-

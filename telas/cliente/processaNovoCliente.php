@@ -23,7 +23,7 @@ $conn = getConnection();
 
     // ! quer dizer o contrario da logica
     if (!isset($_POST['nome']) || !isset($_POST['cpf']) || !isset($_POST['data_cadastro']) || !isset($_POST['telefone']) || !isset($_POST['celular']) || !isset($_POST['nascimento']) || !isset($_POST['endereco'])){
-        echo "Campo não existe";
+        echo "Informações inexistentes";
         die();
     }
 

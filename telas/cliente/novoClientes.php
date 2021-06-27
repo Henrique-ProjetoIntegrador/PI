@@ -33,11 +33,11 @@
             <div class="formulario col-sm-6 offset-2">
                 <div class="form-group">
                     <label for="nome-cliente">Nome do cliente:</label>
-                    <input type= "name" class="form-control" name="nome" id="nome" placeholder="Insira o nome">
+                    <input type= "text" class="form-control" name="nome" id="nome" placeholder="Insira o nome">
                 </div>
             <div class="form-group">
                 <label for="data_cadastro">Data de Cadastro:</label>
-                <input type="date"class="form-control" name="data_cadastro"id="data_cadastro"placeholder="Insira a data">
+                <input type="date" class="form-control" name="data_cadastro"id="data_cadastro"placeholder="Insira a data">
             </div>
             <div class="form-group">
                 <label for="cpf">CPF:</label>
@@ -45,11 +45,11 @@
             </div>
             <div class="form-group">
                 <label for="telefone">Telefone:</label>
-                <input type ="tel" class="form-control" name="telefone" id="telefone" placeholder="(DDD)x xxxx-xxxx">
+                <input type ="number" class="form-control" name="telefone" id="telefone" placeholder="(DDD)x xxxx-xxxx">
             </div>
             <div class="form-group">
                 <label for="celular">Celular:</label>
-                <input type ="tel" class="form-control" name="celular" id="celular" placeholder="(DDD)x xxxx-xxxx">
+                <input type ="number" class="form-control" name="celular" id="celular" placeholder="(DDD)x xxxx-xxxx">
             </div>
             <div class="form-group">
                 <label for="nascimento">Data de Nascimento:</label>
