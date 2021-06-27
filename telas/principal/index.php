@@ -1,5 +1,5 @@
 <?php
-    include '../../includes/verificaSeLogado.php';
+    include '../../includes/verificaSeLogado.php';    
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -23,36 +23,36 @@
     ?>
 </header>
 
-<div class="row text-center">
+<div class="conteiner-icones row text-center">
 
-    <div class="imagem-usuarios col-sm-4">
+    <div class="icones-opcoes imagem-usuarios col-sm-4">
         <figure>
             <a href="../usuario/index.php"><i class="fas fa-user mod-icon" alt="Ícone usuários"></i></a>
              <figcaption class="figure-caption">GERENCIAMENTO DE USUÁRIOS</figcaption>
     </figure>
     </div>
 
-    <div class="imagem-clientes col-sm-4">
+    <div class="icones-opcoes imagem-clientes col-sm-4">
         <figure>
             <a href="../cliente/index.php"><i class="fas fa-users mod-clientes" alt="Ícone Clientes."></i></a>
             <figcaption class="figure-caption">GERENCIAMENTO DE CLIENTES</figcaption>
         </figure>
     </div>
 
-    <div class="imagem-veiculos col-sm-2">
+    <div class="icones-opcoes imagem-veiculos col-sm-4">
         <figure class="figure">
             <a href="../veiculo/index.php"><i class="fas fa-car mod-veiculo" alt="Ícone veículo"></i></a>
             <figcaption class="figure-caption">GERENCIAMENTO DE VEÍCULOS</figcaption>
         </figure>
     </div>
 
-<div class="imagem-pecas col-sm-6">
+<div class="icones-opcoes imagem-pecas col-sm-6">
     <figure>
         <a href="../pecas/index.php"><i class="fas fa-wrench mod-pecas" alt="Ícone peças"></i></a>
         <figcaption class="figure-caption">GERENCIAMENTO DE PEÇAS</figcaption>
     </figure>
 </div>
-<div class="imagem-orcamentos col-sm-4">
+<div class="icones-opcoes imagem-orcamentos col-sm-6">
         <figure class="figure">
             <a href="../orcamento/index.php"><i class="fas fa-file-invoice-dollar mod-orcamento" alt="Ícone Orçamentos"></i></a>
             <figcaption class="figure-caption">GERENCIAMENTO DE ORÇAMENTOS</figcaption>

@@ -68,12 +68,7 @@
                     }
                 }
             }           
-        }
-        public function encerraAcesso():void
-        {
-            $_SESSION['status']=false;
-            header('Location: login.php');
-        }
+        }        
         public function exibeFormulario():void
         {
             if(!isset($_SESSION['tentativas'])){
