@@ -1,7 +1,7 @@
 <?php
 
 
-class Usuario
+class Categoria
 {
     private $connect;
 
@@ -10,9 +10,9 @@ class Usuario
         $this->connect = $conn;
     }
 
-    public function getUsers()
+    public function getCategoria()
     {
-        $sql = "SELECT * FROM usuario";
+        $sql = "SELECT * FROM categoria";
 
         $stmt = $this->connect->prepare($sql); // prepara a query para ser executada
         $stmt->execute(); // realiza a execução da query
@@ -20,5 +20,4 @@ class Usuario
 
         return $resultado;
     }
-
 }

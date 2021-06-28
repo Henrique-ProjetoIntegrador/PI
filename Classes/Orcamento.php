@@ -10,4 +10,10 @@ class Orcamento
         $this->connect = $conn;
     }
 
+    function selected( $value  ){
+        return $value;
+    }
+
+
+
 }
