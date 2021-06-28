@@ -71,10 +71,6 @@
                         <br>
                     </div>
                     <div class="col-sm-12">
-                        <a href ="../cliente/PesquisarCliente"><button type= "button"class="btn btn-danger btn-lg btn-block">Pesquisar</a></button>
-                    <br>
-                    </div>
-                    <div class="col-sm-12">
                         <a href ="../cliente/index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</a></button>
                     </div>
                 </div>
