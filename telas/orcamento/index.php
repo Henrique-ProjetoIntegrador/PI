@@ -30,6 +30,18 @@
                     <div class="campos col-sm-8 text-center">
                         <div class="campos-input">
                             <div class="row">
+                                <label for="nuorcamento" class="message col-sm-3">N° ORÇ</label>
+                                <input class="form form-control form-control-sm col-sm-5" id="nuorcamento" type="text" required/>
+                            </div>
+                        </div>
+                        <div class="campos-input">
+                            <div class="row">
+                                <label for="emissaodate" class="col-sm-3">Data de emissão</label>
+                                <input class="form form-control form-control-sm col-sm-5"   id="emissaodate" type="date" required/>
+                            </div>
+                        </div>
+                        <div class="campos-input">
+                            <div class="row">
                                 <label for="veiculo" class="col-sm-3">Veículo</label>
                                 <input class="form form-control form-control-sm col-sm-5"    id="veiculo" type="text" required/>
                             </div>
