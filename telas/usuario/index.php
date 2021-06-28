@@ -1,9 +1,15 @@
 <?php
     include '../../includes/verificaSeLogado.php';
-    require '../../includes/Conexao.php';
-    require '../../includes/ControlerSql.php';
-    $conteudo = new Controler($mysql);
+    include '../../includes/redireciona.php';
+    require '../../Classes/Conexao.php';
+    require '../../Classes/Usuario.php';
+    $conteudo = new Usuario($mysql);
     $usuarios = $conteudo->consultaTodosUsuarios();
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){          
+        $imprime = $_POST['login'];
+        $conteudo->removerUsuario($_POST['id']);
+        redireciona('index.php'); 
+     } 
 ?>
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -14,8 +20,7 @@
     ?>
     <link rel="stylesheet" href="../../styles/menu.css"/>
     <link rel="stylesheet" href="../../styles/usuario.css"/>
-
-    <title>Usuários</title>
+    <title>Usuários</title>   
 </head>
 <body>
 <header>
@@ -44,12 +49,17 @@
                                 </thead>
                                 <tbody>
                                     <?php foreach($usuarios as $usuario): ?>
-                                        <?php if($usuario['id'] != $_SESSION['id_usuario']): ?>                                           
+                                        <?php if($usuario['id'] != $_SESSION['id_usuario'] && $usuario['id'] != '1' ): ?>                                           
                                             <tr>
                                                 <td><?php echo $usuario['login']; ?></td>
                                                 <td><?php echo $usuario['funcao']; ?></td>
                                                 <td><a href="editarUsuario.php?id=<?php echo $usuario['id'] ?>">Editar</a></td>
-                                                <td><a href="deletarUsuario.php?id=<?php echo $usuario['id'] ?>">Excluir</a></td>
+                                                <form action="index.php" method="POST">
+                                                    <input type="text" name="id" value="<?php echo $usuario['id'] ?>" hidden>
+                                                    
+                                                    <td><a href=""><button class="botao-excluir-usuario" type="submit">Excluir</button></a></td>
+                                                </form>
+                                                
                                             </tr>
                                         <?php endif ?>                                        
                                     <?php endforeach ?>                 
@@ -71,7 +81,40 @@
                     </div>
                 </div>
             </div>    
-        </div>     
+        </div>
+        <?php 
+            if(!isset($_SESSION['novoUsuario'])){
+                $_SESSION['novoUsuario'] = false;
+            }
+            if(!isset($_SESSION['editarUsuario'])){
+                $_SESSION['editarUsuario'] = false;
+            }
+            if(!isset($_SESSION['removerUsuario'])){
+                $_SESSION['removerUsuario'] = false;
+            }
+        ?>
+        <?php if($_SESSION['novoUsuario']==true||$_SESSION['editarUsuario'] ==true|| $_SESSION['removerUsuario'] ==true ){ ?>
+            <div class="modal" id= "salvar" tabindex="-1" role="dialog">
+                <div class= "modal-dialog" role="document">
+                    <div class= "modal-content">
+                        <div class="modal-header">
+                            <h5 class= "modal-title"><?php echo $_SESSION['mensagemHeader']; ?></h5> 
+                        </div>
+                        <div class="modal-body">                            
+                            <p><?php echo $_SESSION['mensagem']; ?></p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="index.php"><button type="button" onclick="<?php $_SESSION['removerUsuario'] =false; $_SESSION['novoUsuario']=false;  $_SESSION['editarUsuario'] =false; ?>" class="btn btn-success">OK</button></a>               
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>                
+                $(document).ready (function (){
+                    $('#salvar') .modal('show');
+                });                
+            </script>
+        <?php } ?>  
     </main>   
 </body>
 </html>

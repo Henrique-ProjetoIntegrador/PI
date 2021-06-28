@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require '../../includes/validaAcesso.php';
-    require '../../includes/Conexao.php';   
+    require '../../Classes/validaAcesso.php';
+    require '../../Classes/Conexao.php';   
     $acesso = new Acesso($mysql); 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){       
         $acesso->validaAcesso($_POST['usuario'],$_POST['senha']);              

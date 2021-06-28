@@ -1,10 +1,14 @@
 <?php
 session_start();
 
-$login = $_POST["login"];
-$senha = $_POST["senha"];
-$funcao = $_POST["funcao"];
-$id = $_POST["id"];
+$data_cadastro = $_POST["data_cadastro"];
+$modelo = $_POST["modelo"];
+$marca = $_POST["marca"];
+$ano = $_POST["ano"];
+$placa = $_POST["placa"];
+$chassis = $_POST["chassis"];
+$id= $_POST["id"];
+
 
 
 include_once '../../includes/connectDb.php';
@@ -13,20 +17,20 @@ $conn = getConnection();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <?php
-            include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
-        ?>
-        <link rel="stylesheet" href="../../styles/menu.css"/>
-        <link rel="stylesheet" href="../../styles/novoUsuario.css"/>
-        <link rel="stylesheet" href="../alerts/modal.css">
-        <title>Novo Usuário</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <?php
+    include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
+    ?>
+    <link rel="stylesheet" href="../../styles/menu.css"/>
+    <link rel="stylesheet" href="../../styles/novoClientes.css"/>
+    <link rel="stylesheet" href="../alerts/modal.css">
+    <title>Novo Cliente</title>
+</head>
+<body>
 
 <?php
-$sql = "UPDATE usuario SET login = '".$login."', senha = '".$senha."', funcao = '".$funcao."' WHERE id =".$id; 
+$sql = "UPDATE veiculo SET modelo = '".$modelo."', marca = '".$marca."', data_cadastro = '".$data_cadastro."', ano = '".$ano."', placa ='".$placa."', chassis = '".$chassis."' WHERE id =".$id;
 $stmt = $conn->prepare($sql); // prepara a query para ser executada
 $stmt->execute(); // realiza a execução da query
 // header('Location: index.php');
@@ -36,13 +40,13 @@ if($stmt){ ?>
         <div class= "modal-dialog" role="document">
             <div class= "modal-content">
                 <div class="modal-header">
-                    <h5 class= "modal-title">Editar</h5> 
+                    <h5 class= "modal-title">Editar</h5>
                 </div>
                 <div class="modal-body">
                     <p>Editado com sucesso!</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="index.php"><button type="button" class="btn btn-success">OK</button></a>               
+                    <a href="../veiculo/index.php"><button type="button" class="btn btn-success">OK</button></a>
                 </div>
             </div>
         </div>
@@ -60,19 +64,19 @@ if($stmt){ ?>
                     <h5 class= "modal-title">Editar</h5>
                 </div>
                 <div class="modal-body">
-                    <p>Não foi possível editar usuário!</p>
+                    <p>Não foi possível editar cliente!</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="index.php"><button type="button" class="btn btn-success">OK</button></a>               
+                    <a href="../veiculo/index.php"><button type="button" class="btn btn-success">OK</button></a>
                 </div>
             </div>
         </div>
     </div>
     <script>
-    $(document).ready (function (){
-        $('#salvar') .modal('show');
-    });
-    </script>  
+        $(document).ready (function (){
+            $('#salvar') .modal('show');
+        });
+    </script>
 <?php } ?>
 
 </body>

@@ -1,15 +1,19 @@
 
 <?php
      include '../../includes/verificaSeLogado.php';
-     require '../../includes/Conexao.php';
-     require '../../includes/ControlerSql.php';
-     $conteudo = new Controler($mysql);
+     include '../../includes/redireciona.php';
+     require '../../Classes/Conexao.php';
+     require '../../Classes/Usuario.php';
+
+     $conteudo = new Usuario($mysql);
      if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        if($_POST['nome'] == "" || $_POST['senha'] == "" || $_POST['funcao']== ""){
+        if($_POST['nome'] == "" || $_POST['senha'] == "" || $_POST['funcao']== "Selecione uma opção"){
             $_SESSION['erroCampos'] =  'Favor preencher todos os campos!';
-            header('Location: novoUsuario.php');
-        }
-        $conteudo->cadastraNovoUsuario($_POST['nome'],$_POST['senha'],$_POST['funcao']);
+            redireciona('novoUsuario.php');           
+        } else {
+            $conteudo->cadastraNovoUsuario($_POST['nome'],$_POST['senha'],$_POST['funcao']);
+            redireciona('index.php');
+        }   
      }
 ?>
 <!DOCTYPE html>
@@ -87,6 +91,6 @@
             </div>      
         </div> 
         </form> 
-    </div>   
+    </div>  
 </body>
 </html>

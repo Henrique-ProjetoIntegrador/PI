@@ -1,8 +1,22 @@
 
 <?php
     include '../../includes/verificaSeLogado.php';
-    include_once '../../includes/connectDb.php';
-    $conn = getConnection();
+    include '../../includes/redireciona.php';
+    require '../../Classes/Conexao.php';
+    require '../../Classes/Usuario.php';
+
+    $conteudo = new Usuario($mysql);
+    $usuario = $conteudo->consultaUsuarioPorId($_GET['id']);
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        
+       if($_POST['login'] == "" || $_POST['senha'] == "" || $_POST['funcao']== ""){
+           $_SESSION['erroCampos'] =  'Favor preencher todos os campos!';
+           redireciona('editarUsuario.php?id='.$usuario['id']);           
+       } else {
+           $conteudo->editarUsuario($_GET['id'],$_POST['login'],$_POST['senha'],$_POST['funcao']);
+           redireciona('index.php');
+       }   
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -31,34 +45,24 @@
                 <h2 class="col-6 offset-2 text-center">Editar Usuário</h2>
             </div>
         </div>
-        <form method="POST"action="atualizarUsuario.php"> 
+        <form method="POST"action="editarUsuario.php?id=<?php echo $usuario['id']; ?>"> 
         <div class="row">       
             <div class="formulario col-sm-6 offset-2">
-                <?php
-                    $sql = "SELECT * from usuario where id = '{$_GET['id']}'"; 
-                    $stmt = $conn->prepare($sql); // prepara a query para ser executada
-                    $stmt->execute(); // realiza a execução da query
-                    $resultado = $stmt->fetchAll();
-
-                    $nome = $resultado[0]['login'];
-                    $senha = $resultado[0]['senha'];
-                    $funcao = $resultado[0]['funcao'];
-
-                ?>
+               
                     <div class="form-group">
-                    <?php echo " <input type='text' name='id' class='form-control' id='id' aria-describedby='nome'  value='{$_GET['id']}' hidden"?>
+                    <input type='text' name='id' class='form-control' id='id' aria-describedby='nome'  value='<?php echo $usuario['id'] ?>' hidden>
                     
                         <label for="nome">Login:</label>
-                        <?php echo " <input type='text' name='login' class='form-control' id='nome' aria-describedby='nome'  value='{$nome}' placeholder='Digite o nome'>"?>
+                        <input type='text' name='login' class='form-control' id='nome' aria-describedby='nome'  value='<?php echo $usuario['login'] ?>' placeholder='Digite o nome'>
                         </div>
                     <div class="form-group">
                         <label for="senha">Senha:</label>
-                        <?php echo " <input type='password' name='senha' class='form-control' value='{$senha}' id='senha' placeholder='Digite sua senha:'>"?>
+                        <input type='password' name='senha' class='form-control'  id='senha' placeholder='Digite sua senha:'>
                     </div>
                     <div class="form-group">
                         <label for="categoria" class=col-sm-3>CATEGORIA:</label>
                         <select class="form-control" name="funcao" id="categoria">
-                            <option selected hidden><?php echo $funcao?></option>
+                            <option selected hidden><?php echo $usuario['funcao'] ?></option>
                             <option>Administrador</option>
                             <option>Mecânico</option>  
                         </select> 
@@ -67,9 +71,8 @@
 
                         if(isset($_SESSION['erroCampos'])){
                             // criando a classe alerta
-                            echo "<div class='alert alert-danger'>";
-                                
-                                echo $_SESSION['erroCampos'];
+                            echo "<div class='alert alert-danger'>";                                
+                            echo $_SESSION['erroCampos'];
                             echo "</div>";
                             // fechando o div da class alerta
                             unset($_SESSION['erroCampos']);
@@ -86,7 +89,7 @@
                         <br>
                     </div>
                     <div class="col-sm-12">
-                        <a href ="../usuario/index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</a></button>
+                        <a href ="index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</button></a>
                     </div>
                 </div>
             </div>      
