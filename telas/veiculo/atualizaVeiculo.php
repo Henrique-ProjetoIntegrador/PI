@@ -25,7 +25,7 @@ $conn = getConnection();
     <link rel="stylesheet" href="../../styles/menu.css"/>
     <link rel="stylesheet" href="../../styles/novoClientes.css"/>
     <link rel="stylesheet" href="../alerts/modal.css">
-    <title>Novo Cliente</title>
+    <title>Novo Veículo</title>
 </head>
 <body>
 

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../styles/menu.css"/>
     <link rel="stylesheet" href="../../styles/clientes.css"/>
 
-    <title>CLIENTES</title>
+    <title>Clientes</title>
 </head>
 <body>
 <header>

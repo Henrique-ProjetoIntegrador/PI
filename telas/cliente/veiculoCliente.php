@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="header-veiculos col-sm-8">
-                    <h2 class="text-center">Veiculos</h2>
+                    <h2 class="text-center">Veículos</h2>
                 </div>
                 <div class="group-veiculos col-sm-6 offset-1">
                     <div class="row">
@@ -36,7 +36,7 @@
                             <table class="table table-striped text-center">
                                 <thead class="thead-dark">
                                     <tr>                      
-                                        <th scope="col">Veiculo</th>
+                                        <th scope="col">Veículo</th>
                                         <th scope="col">Placa</th>
 <!--                                        <th scope="col"colspan="2">Ação</th> -->
                                     </tr>

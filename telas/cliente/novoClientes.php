@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row-2">
             <div class="header-veiculo col-sm-12">
-                <h2 class="col-6 offset-2 text-center">Novo Clientes</h2>
+                <h2 class="col-6 offset-2 text-center">Novo Cliente</h2>
             </div>
         </div>
         <form method="POST"action="processaNovoCliente.php">  

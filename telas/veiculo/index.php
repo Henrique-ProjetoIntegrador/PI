@@ -17,7 +17,7 @@ $veiculo = new Veiculo($conn);
     include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
     <link rel="stylesheet" href="../../styles/veiculo.css">
-    <title>Veiculos</title>
+    <title>Veículos</title>
 </head>
 <body>
 <header>
@@ -32,7 +32,7 @@ $veiculo = new Veiculo($conn);
     <div class="container">
         <div class="row">
             <div class="header-veiculos col-sm-8">
-                <h2 class="text-center">Veiculos Cadastrados</h2>
+                <h2 class="text-center">Veículos Cadastrados</h2>
             </div>
             <div class="group-veiculos col-sm-6 offset-1">
                 <div class="row">
@@ -40,7 +40,7 @@ $veiculo = new Veiculo($conn);
                         <table class="table table-striped text-center">
                             <thead class="thead-dark">
                             <tr>
-                                <th scope="col">Veiculo</th>
+                                <th scope="col">Veículo</th>
                                 <th scope="col">Placa</th>
                                 <th scope="col" colspan="2">Ação</th>
                             </tr>

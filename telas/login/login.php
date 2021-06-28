@@ -16,7 +16,7 @@
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
     <link rel="stylesheet" href="../../styles/login.css"/>
-    <title>LOGIN</title>
+    <title>Login</title>
 </head>
 <body> <!-- Elementos que aparece na tela -->
     <div id="login-container"> <!-- Elementos que aparece na tela -->

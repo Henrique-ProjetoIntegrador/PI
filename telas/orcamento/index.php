@@ -23,7 +23,7 @@ $orcamento = new Orcamento($conn);
     ?>
     <link rel="stylesheet" href="../../styles/orcamento.css">
     <link rel="stylesheet" href="../alerts/modal.css">
-    <title>Novo orçamento</title>
+    <title> Orçamentos</title>
 </head>
 <body>
 <header>

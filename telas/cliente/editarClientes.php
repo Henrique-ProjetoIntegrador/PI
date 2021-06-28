@@ -29,7 +29,7 @@ $conn = getConnection();
 <div class="container">
     <div class="row-2">
         <div class="header-veiculo col-sm-12">
-            <h2 class="col-6 offset-2 text-center">Editar Clientes</h2>
+            <h2 class="col-6 offset-2 text-center">Editar Cliente</h2>
         </div>
     </div>
     <form method="POST" action="atualizarClientes.php">

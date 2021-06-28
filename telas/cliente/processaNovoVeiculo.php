@@ -14,7 +14,7 @@
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
     <link rel="stylesheet" href="../../styles/veiculo.css">
-    <title>Veiculos</title>
+    <title>Veículos</title>
 </head>
 <body>
 
