@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row-2">
             <div class="header-veiculo col-sm-12">
-                <h2 class="col-6 offset-2 text-center">Editar Clientes</h2>
+                <h2 class="col-6 offset-2 text-center">Novo Clientes</h2>
             </div>
         </div>
         <form method="POST"action="processaNovoCliente.php">  
@@ -35,10 +35,6 @@
                     <label for="nome-cliente">Nome do cliente:</label>
                     <input type= "text" class="form-control" name="nome" id="nome" placeholder="Insira o nome">
                 </div>
-            <div class="form-group">
-                <label for="data_cadastro">Data de Cadastro:</label>
-                <input type="date" class="form-control" name="data_cadastro"id="data_cadastro"placeholder="Insira a data">
-            </div>
             <div class="form-group">
                 <label for="cpf">CPF:</label>
                 <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Insira o CPF">
@@ -93,6 +89,62 @@
 
 
 
+<!-- <h1>NOVO CLIENTE</h1>
+<div class="container">
+        <div class="row-2">
+            <div class="header-veiculo col-sm-12">
+                <h2 class="col-6 offset-2 text-center">Novo Clientes</h2>
+            </div>
+        </div>
+        <form method="POST"action="processaNovoCliente.php">  
+        <div class="row">       
+            <div class="formulario col-sm-6 offset-2">
+                <div class="form-group">
+                    <label for="nome-cliente">Nome do cliente:</label>
+                    <input type= "text" class="form-control" name="nome" id="nome" placeholder="Insira o nome">
+                </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Insira o CPF">
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type ="number" class="form-control" name="telefone" id="telefone" placeholder="(DDD)x xxxx-xxxx">
+            </div>
+            <div class="form-group">
+                <label for="celular">Celular:</label>
+                <input type ="number" class="form-control" name="celular" id="celular" placeholder="(DDD)x xxxx-xxxx">
+            </div>
+            <div class="form-group">
+                <label for="nascimento">Data de Nascimento:</label>
+                <input type="date" class="form-control" name="nascimento" id="nascimento" placeholder="Insira a data">
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Insira o endereço">
+            </div>
+
+            <PHP>
+
+            </div>
+            <div class="options-buttons col-sm-2">
+                <div class= "row">
+                    <div class="col-sm-12">
+                        <button type="submit"class=" btn btn-danger btn-lg btn-block">Salvar</button>                          
+                        <br>
+                    </div>
+                    <div class="col-sm-12">
+                        <a href ="../cliente/PesquisarCliente"><button type= "button"class="btn btn-danger btn-lg btn-block">Pesquisar</a></button>
+                    <br>
+                    </div>
+                    <div class="col-sm-12">
+                        <a href ="../cliente/index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</a></button>
+                    </div>
+                </div>
+            </div>      
+        </div> 
+        </form> 
+    </div> -->
 
 
 
