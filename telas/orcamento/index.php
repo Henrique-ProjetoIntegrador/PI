@@ -123,7 +123,6 @@ $id_orcamento = $orcamento->saveOcorrencia($_POST);
                                 <th style="width: 320px">CATEGORIA</th>
                                 <th style="width: 320px">PEÇA</th>
                                 <th style="width: 320px">VLR</th>
-                                <th style="width: 320px"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -135,7 +134,6 @@ $id_orcamento = $orcamento->saveOcorrencia($_POST);
                                             echo "<td>{$peca['name']}</td>";
                                             echo "<td>{$peca['nome']}</td>";
                                             echo "<td>{$peca['valor']}</td>";
-                                            echo "<td></td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -184,9 +182,6 @@ $id_orcamento = $orcamento->saveOcorrencia($_POST);
                                 </td>
                                 <td>
                                     <input type="text" name="preco" id="preco" value="<?php echo (isset($preco[0]['preco']) ? $preco[0]['preco'] : "") ?>" class="form-control">
-                                </td>
-                                <td>
-                                    <input type="submit" class="btn btn-success" name="confirm" id="confirm" value=confirmar>
                                 </td>
                             </tr>
                             </tbody>
