@@ -1,7 +1,19 @@
 <?php
-include '../../includes/verificaSeLogado.php';
-include_once '../../includes/connectDb.php';
-$conn = getConnection();
+ include '../../includes/verificaSeLogado.php';
+ include '../../includes/redireciona.php';
+ require '../../Classes/Conexao.php';
+ require '../../Classes/Cliente.php';
+ $conteudo = new Cliente($mysql);
+ $cliente = $conteudo->consultaClientePorId($_GET['id']);
+  if($_SERVER['REQUEST_METHOD'] === 'POST'){
+     if($_POST['nome']==''||$_POST['cpf']==''||$_POST['nascimento']==''||$_POST['endereco']==''||$_POST['telefone']==''||$_POST['celular']==''){
+         $_SESSION['erroCampos'] =  'Favor preencher todos os campos!';
+         redireciona('novoClientes.php');           
+     } else {
+         $conteudo->editarCliente($_POST['id'],$_POST['data_cadastro'],$_POST['nome'],$_POST['cpf'],$_POST['nascimento'],$_POST['endereco'],$_POST['telefone'],$_POST['celular']);
+         redireciona('index.php');
+     }   
+  }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,60 +44,45 @@ $conn = getConnection();
             <h2 class="col-6 offset-2 text-center">Editar Cliente</h2>
         </div>
     </div>
-    <form method="POST" action="atualizarClientes.php">
+    <form method="POST" action="editarClientes.php?id=<?php echo $cliente['id'] ?>">
         <div class="row">
-            <div class="formulario col-sm-6 offset-2">
-                <?php
-                $sql = "SELECT * from clientes where id = '{$_GET['id']}'";
-                $stmt = $conn->prepare($sql); // prepara a query para ser executada
-                $stmt->execute(); // realiza a execução da query
-                $resultado = $stmt->fetchAll();
-
-                $nome = $resultado[0]['nome'];
-                $cpf = $resultado[0]['cpf'];
-                $data_cadastro = $resultado[0]['data_cadastro'];
-                $telefone = $resultado[0]['telefone'];
-                $celular = $resultado[0]['celular'];
-                $nascimento = $resultado[0]['nascimento'];
-                $endereco = $resultado[0]['endereco'];
-
-                ?>
+            <div class="formulario col-sm-6 offset-2">            
 
                 <div class="form-group">
-                    <?php echo " <input type='text' name='id' class='form-control' id='id' value='{$_GET['id']}' hidden" ?>
-
+                    <input type='text' name='id' class='form-control' id='id' value='<?php echo $cliente['id']; ?>' hidden>                  
                     <label for="nome-cliente">Nome do cliente:</label>
-                    <?php echo " <input type='text' name='nome' class='form-control' id='nome'  value='{$nome}' placeholder='Insira o nome'>" ?>
+                    <input type='text' name='nome' class='form-control' id='nome'  value='<?php echo $cliente['nome']; ?>'>
                 </div>
 
                 <div class="form-group">
                     <label for="data_cadastro">Data de Cadastro:</label>
-                    <?php echo " <input type= 'date' name='data_cadastro' class='form-control' id='data_cadastro' value='{$data_cadastro}' placeholder ='Insira a data'>" ?>
+                    <input type= 'datetime'  class='form-control' id='data_cadastro' value='<?php echo $cliente['data_cadastro']; ?>' disabled>
+                    <input type='text' name='data_cadastro' class='form-control' id='id' value='<?php echo $cliente['data_cadastro']; ?>' hidden>
                 </div>
-
+                
                 <div class="form-group">
                     <label for="cpf">CPF:</label>
-                    <?php echo " <input type='text' name='cpf' class='form-control' id='cpf' value='{$cpf}' placeholder ='Insira o CPF'>" ?>
+                    <input type='text' name='cpf' class='form-control' id='cpf' value='<?php echo $cliente['cpf']; ?>'>
                 </div>
 
                 <div class="form-group">
                     <label for="telefone">Telefone:</label>
-                    <?php echo " <input type='number' name='telefone' class='form-control' id='telefone' value='{$telefone}' placeholder ='Insira o telefone'>" ?>
+                   <input type='tel' name='telefone' class='form-control' id='telefone' value='<?php echo $cliente['telefone']; ?>' >
                 </div>
 
                 <div class="form-group">
                     <label for="celular">Celular:</label>
-                    <?php echo " <input type='number' name='celular' class= 'form-control' id= 'celular' value='{$celular}' placeholder ='Insira o celular'>" ?>
+                    <input type='tel' name='celular' class= 'form-control' id= 'celular' value='<?php echo $cliente['celular']; ?>' >
                 </div>
 
                 <div class="form-group">
                     <label for="nascimento">Data de Nascimento:</label>
-                    <?php echo " <input type='date' name='nascimento' class= 'form-control' id='nascimento' value='{$nascimento}' placeholder='Insira a data de nascimento'>" ?>
+                   <input type='date' name='nascimento' class= 'form-control' id='nascimento' value='<?php echo $cliente['nascimento']; ?>' >
                 </div>
 
                 <div class="form-group">
                     <label for="endereco">Endereço:</label>
-                    <?php echo " <input type ='text' name='endereco' class='form-control' id= 'endereco' value ='{$endereco}' placeholder 'Insira o endereço'>" ?>
+                    <input type ='text' name='endereco' class='form-control' id= 'endereco' value ='<?php echo $cliente['endereco']; ?>' >
                 </div>
                 <?php
                 if (isset($_SESSION['erroCampos'])) {
@@ -101,17 +98,10 @@ $conn = getConnection();
                     <div class="col-sm-12">
                         <button type="submit" class=" btn btn-danger btn-lg btn-block">Salvar</button>
                         <br>
-                    </div>
-                    <div class="col-sm-12">
-                        <a href="../cliente/PesquisarCliente">
-                            <button type="button" class="btn btn-danger btn-lg btn-block">Pesquisar
-                        </a></button>
-                        <br>
-                    </div>
+                    </div>                    
                     <div class="col-sm-12">
                         <a href="../cliente/index.php">
-                            <button type="button" class="btn btn-danger btn-lg btn-block">Voltar
-                        </a></button>
+                            <button type="button" class="btn btn-danger btn-lg btn-block">Voltar</button></a>
                     </div>
                 </div>
             </div>

@@ -28,7 +28,42 @@ a:hover{
 .container{
     margin-top: 5%;
 }
+.termo-autorizacao{
+    text-align: center;
+    display: none;
+}
 
+/*CSS para impressão*/
+@media print {
+    header,.options-buttons, .col-sm-2 {
+        display: none;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .row-2{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .header-veiculo, .col-sm-12{
+        display: flex;
+        justify-content: center;
+    }
+    .col-6, .offset-2, .text-center{
+        width: 100%;
+    }
+    .row{
+        justify-content: center;
+        width: 100%;
+    }
+    .termo-autorizacao{
+        display: block;
+    }
+
+}
 
 
 /* .btn-danger{

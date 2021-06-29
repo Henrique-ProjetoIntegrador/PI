@@ -5,8 +5,7 @@
     require '../../Classes/Usuario.php';
     $conteudo = new Usuario($mysql);
     $usuarios = $conteudo->consultaTodosUsuarios();
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){          
-        $imprime = $_POST['login'];
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){  
         $conteudo->removerUsuario($_POST['id']);
         redireciona('index.php'); 
      } 

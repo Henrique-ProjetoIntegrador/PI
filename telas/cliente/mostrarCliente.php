@@ -1,12 +1,20 @@
 <?php
     include '../../includes/verificaSeLogado.php';
-    include_once '../../includes/connectDb.php';
-    $conn = getConnection();
+    include '../../includes/redireciona.php';
+    require '../../Classes/Conexao.php';
+    require '../../Classes/Cliente.php';
+    $conteudo = new Cliente($mysql);
+    $cliente = $conteudo->consultaClientePorId($_GET['id']);
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){      
+        $conteudo->removerCliente($_POST['id']);
+        redireciona('index.php'); 
+     }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
     <?php
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
@@ -32,59 +40,53 @@
                 <h2 class="col-6 offset-2 text-center">Informações do Cliente</h2>
             </div>
         </div>
-        <form method="POST"action="atualizarClientes.php">  
+          
         <div class="row">       
-            <div class="formulario col-sm-6 offset-2">
-            <?php
-                    $sql = "SELECT * from clientes where id = '{$_GET['id']}'"; 
-                    $stmt = $conn->prepare($sql); // prepara a query para ser executada
-                    $stmt->execute(); // realiza a execução da query
-                    $resultado = $stmt->fetchAll();
-                    $nome = $resultado[0]['nome'];
-                    $cpf = $resultado[0]['cpf'];
-                    $data_cadastro = $resultado[0]['data_cadastro'];
-                    $telefone = $resultado[0]['telefone'];
-                    $celular = $resultado[0]['celular'];
-                    $nascimento = $resultado[0]['nascimento'];
-                    $endereco = $resultado[0]['endereco'];
-                ?>
+            <div class="formulario col-sm-6 offset-2"> 
 
-                <div class="form-group">
-                <?php echo " <input type='text' name='id' class='form-control' id='id' value='{$_GET['id']}' hidden"?>
-                    
+                <div class="form-group">                    
                         <label for="nome-cliente">Nome do cliente:</label>
-                        <?php echo " <input type='text' name='nome' class='form-control' id='nome'  value='{$nome}' disabled> "?>
+                        <input type='text' name='nome' class='form-control' id='nome'  value='<?php echo $cliente['nome']; ?>' disabled>
                 </div>
 
                 <div class="form-group">
                     <label for="data_cadastro">Data de Cadastro:</label>
-                    <?php echo " <input type= 'datetime' name='data_cadastro' class='form-control' id='data_cadastro' value='{$data_cadastro}' disabled>"?>  
+                    <input type= 'datetime' name='data_cadastro' class='form-control' id='data_cadastro' value='<?php echo $cliente['data_cadastro']; ?>' disabled>
                 </div>
                 
                 <div class="form-group">
                     <label for="cpf">CPF:</label>
-                    <?php echo " <input type='text' name='cpf' class='form-control' id='cpf' value='{$cpf}'disabled>"?> 
+                    <input type='text' name='cpf' class='form-control' id='cpf' value='<?php echo $cliente['cpf']; ?>'disabled>
                 </div>
 
                 <div class="form-group">
                     <label for="telefone">Telefone:</label>
-                    <?php echo " <input type='tel' name='telefone' class='form-control' id='telefone' value='{$telefone}' disabled>"?>
+                   <input type='tel' name='telefone' class='form-control' id='telefone' value='<?php echo $cliente['telefone']; ?>' disabled>
                 </div>
 
                 <div class="form-group">
                     <label for="celular">Celular:</label>
-                    <?php echo " <input type='tel' name='celular' class= 'form-control' id= 'celular' value='{$celular}' disabled>"?>
+                    <input type='tel' name='celular' class= 'form-control' id= 'celular' value='<?php echo $cliente['celular']; ?>' disabled>
                 </div>
 
                 <div class="form-group">
                     <label for="nascimento">Data de Nascimento:</label>
-                    <?php echo " <input type='date' name='nascimento' class= 'form-control' id='nascimento' value='{$nascimento}' disabled>"?>
+                   <input type='date' name='nascimento' class= 'form-control' id='nascimento' value='<?php echo $cliente['nascimento']; ?>' disabled>
                 </div>
 
                 <div class="form-group">
                     <label for="endereco">Endereço:</label>
-                    <?php echo " <input type ='text' name='endereco' class='form-control' id= 'endereco' value ='{$endereco}' disabled>"?>
+                    <input type ='text' name='endereco' class='form-control' id= 'endereco' value ='<?php echo $cliente['endereco']; ?>' disabled>
                 </div>
+                <div class="termo-autorizacao">
+                    <p>Estou ciente e concordo que a empresa Cido Autocenter ltda armazene e trate as informações supracitadas com a finalidade de emitir notas fiscais referente a serviços a mim prestados, entrar em contato comigo em casos de promoções e períodos de revisão, emitir orçamentos e ordens de serviços por mim solicitados.</p>
+                    
+                    <br>
+                    <p>________________________________________</p>
+                    <p><?php echo $cliente['nome'] ?></p>
+                </div>
+                
+
             <?php
                 if(isset($_SESSION['erroCampos'])){
                     echo "<div class='alert alert-danger'>";
@@ -96,42 +98,42 @@
             </div>
             <div class="options-buttons col-sm-2">
                 <div class= "row">
-                    <div class="col-sm-12">
-                    <?php
-                        echo "<a href='editarClientes.php?id=".$_GET['id']."' class='btn btn-danger btn-lg btn-block' >Editar</a>";                                     
-                    
-                    ?>
-                    <br>
-                    </div>
-                    <div class="col-sm-12">
-                    <?php
-                        echo "<a href='deletarClientes.php?id=".$_GET['id']."' class='btn btn-danger btn-lg btn-block' >Excluir</a>";                                     
-                    
-                    ?>
-                    <br>
-                    </div>
-                    <br>
-                    <div class="col-sm-12">
-                    <?php
-                        echo "<a href='veiculoCliente.php?id=".$_GET['id']."' class='btn btn-danger btn-lg btn-block' >Veículos</a>";                                     
-                    
-                    ?>
-                    <br>
-                    </div>
-
-                    <br>
-                    <div class="col-sm-12">
-                        <a href =""><button type= "button"class="btn btn-danger btn-lg btn-block">O.S</a></button>
-                    <br>
+                     
+                     <div class="col-sm-12">
+                        <a href =""><button type= "button"class="btn btn-danger btn-lg btn-block" onClick="window.print()">Emitir Termo</a></button>
+                        <br>
                     </div>
                    
                     <div class="col-sm-12">
-                        <a href ="../cliente/index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</a></button>
+                        <a href='editarClientes.php?id=<?php echo $_GET['id'] ?>' class='btn btn-danger btn-lg btn-block' >Editar</a>
+                        <br>
                     </div>
+                    <div class="col-sm-12">
+                        <form action="mostrarCliente.php?id=<?php echo $cliente['id']; ?>" method="POST">
+                            <input type='text' name='id' value='<?php echo $cliente['id']; ?>' hidden>                            
+                            <button class="btn btn-danger btn-lg btn-block" type="submit">Excluir</button>                                    
+                            <br>
+                        </form>                        
+                    </div>                    
+                    <div class="col-sm-12">
+                        <a href='veiculoCliente.php?id=<?php echo $cliente['id']; ?>' class='btn btn-danger btn-lg btn-block' >Veículos</a>                                    
+                        <br>
+                    </div>
+                    <br>
+                    <!-- Falta fazer essa parte de O.S -->
+                    <div class="col-sm-12">
+                        <a href =""><button type= "button"class="btn btn-danger btn-lg btn-block">O.S</a></button>
+                        <br>
+                    </div>
+                   <!--  -->
+                    <div class="col-sm-12">
+                        <a href ="index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</button></a>
+                    </div>
+                    
+                
                 </div>
             </div>      
-        </div> 
-        </form> 
+        </div>        
     </div>   
 </body>
 </html>

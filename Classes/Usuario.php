@@ -1,6 +1,6 @@
 <!-- Classe responsável pela manipulação de dados no banco -->
 <?php    
-    require 'Conexao.php';    
+    require 'Conexao.php';  
     
     if (session_status() === PHP_SESSION_NONE){
         session_start();
@@ -64,7 +64,10 @@
             $removeEmVeiculos = $this->mysql->prepare('UPDATE veiculo SET id_usuario = 1 WHERE id = ?');
             $removeEmVeiculos->bind_param('s', $id);
             $removeEmVeiculos->execute();
-            //Falta adicionar tabela de categoria
+            $removeEmcategoria = $this->mysql->prepare('UPDATE categoria SET id_usuario = 1 WHERE id = ?');
+            $removeEmcategoria->bind_param('s', $id);
+            $removeEmcategoria->execute();
+            
             $removerUsuario = $this->mysql->prepare('DELETE FROM usuario WHERE id=?');
             $removerUsuario->bind_param('s',$id);
             $removerUsuario->execute();            

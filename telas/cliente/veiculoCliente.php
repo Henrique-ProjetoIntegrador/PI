@@ -1,7 +1,10 @@
 <?php
-    include '../../includes/verificaSeLogado.php';
-    include_once '../../includes/connectDb.php';
-    $conn = getConnection(); //funcao existente no connectDb
+   include '../../includes/verificaSeLogado.php';
+   include '../../includes/redireciona.php';
+   require '../../Classes/Conexao.php';
+   require '../../Classes/Cliente.php';
+   $conteudo = new Cliente($mysql);
+   $veiculos = $conteudo->exibeTodosVeiculosCliente($_GET['id']);   
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -38,32 +41,19 @@
                                     <tr>                      
                                         <th scope="col">Veículo</th>
                                         <th scope="col">Placa</th>
-<!--                                        <th scope="col"colspan="2">Ação</th> -->
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php
-                                $query = "SELECT clientes.nome, 
-                                                   veiculo.marca, 
-                                                   veiculo.placa, 
-                                                   veiculo.id 
-                                            FROM veiculo 
-                                            INNER JOIN 
-                                                clientes on veiculo.id_clientes = clientes.id 
-                                            WHERE clientes.id = '".$_GET['id']."'";
-                                    $stmt = $conn->prepare($query); // prepara a query para ser executada
-                                    $stmt->execute(); // realiza a execução da query
-                                    $resultado = $stmt->fetchAll(); // pega o resultado da execução da query
-                                    
-                                    foreach($resultado as $res){
-                                            echo "<tr>";
-                                            echo "<td><a href='../veiculo/consultarVeiculo.php?id={$res['id']}'>{$res['marca']}</a></td>";
-                                        echo "<td><a href='../veiculo/consultarVeiculo.php?id={$res['id']}'>{$res['placa']}</a></td>";
-//                                            echo "<td><a href='../veiculo/editarVeiculo.php?id=".$res['id']."'>Editar<a/></td>";
-//                                            echo "<td><a href='../veiculo/deletarVeiculo.php?id=".$res['id']."' class=''>Excluir<a/></td>";
-                                            echo "</tr>";
-                                        }
-                                ?> 
+                                    <?php foreach($veiculos as $veiculo):?>
+                                        <tr>                                        
+                                            <td><a href='../veiculo/consultarVeiculo.php?id=<?php echo $veiculo['id']; ?>'><?php echo $veiculo['marca']; ?></a></td>
+                                            <td><a href='../veiculo/consultarVeiculo.php?id=<?php echo $veiculo['id']; ?>'><?php echo $veiculo['placa']; ?></a></td>
+                                            <td><a href='../veiculo/editarVeiculo.php?id="<?php echo $veiculo['id']; ?>'>Editar</a></td>
+                                            <td><a href='../veiculo/deletarVeiculo.php?id="<?php echo $veiculo['id']; ?>' class=''>Excluir</a></td>
+                                        </tr>
+                                    <?php endforeach ?>                                      
                                 </tbody>
                             </table>        
                         </div>
