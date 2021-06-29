@@ -38,11 +38,11 @@
                 </div>
                 <div class="form-group">
                     <label for=preco">Preço:</label>
-                    <input type="price" name="preco" class="form-control" id="preco" placeholder="preco">
+                    <input type="price" name="preco" class="form-control" id="preco" placeholder="Preço">
                 </div>
                 <div class="form-group">
                     <label for=qtd">Qtd:</label>
-                    <input type="number" name="qtd" class="form-control" id="qtd" placeholder="qtd">
+                    <input type="number" name="qtd" class="form-control" id="qtd" placeholder="Qtd">
                 </div>  
                 <div class="form-group">
                         <label for="categoria" class=col-sm-3>CATEGORIA:</label>

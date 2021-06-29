@@ -40,7 +40,7 @@
                                         <th scope="col">Nome</th>
                                         <th scope="col">Categoria</th>
                                         <th scope="col">Preço</th>
-                                        <th scope="col">qtd</th>
+                                        <th scope="col">Qtd</th>
                                         <th scope="col"colspan="2">Ação</th> 
                                     </tr>
                                 </thead>
