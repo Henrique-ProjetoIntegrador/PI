@@ -27,6 +27,10 @@ class Orcamento
                     return $idOrcamento;
                 }
             }else{
+                if (isset($request['delete'])){
+                    $this->deleteItemPeca($request['delete']);
+                    return $request['id_orcamento'];
+                }
                 if (!empty($request['confirm']) && !empty($request['veiculo']) && !empty($request['odometro']) && !empty($request['usuario']) && !empty($request['qtd']) && !empty($request['id_categoria']) && !empty($request['pecas']) && !empty($request['preco'])) {
                     $this->savePecas($request['id_orcamento'], $request);
                     return $request['id_orcamento'];
@@ -35,10 +39,17 @@ class Orcamento
                 }
             }
         } catch (Exception $e){
-            return "error";
+            return $request['id_orcamento'];
         }
     }
 
+    private function deleteItemPeca($id)
+    {
+        $sql = "DELETE FROM lista_peca where id = {$id}";
+
+        $stmt = $this->connect->prepare($sql); // prepara a query para ser executada
+        $stmt->execute(); // realiza a execução da query
+    }
     private function getLastDataOfOrcamento()
     {
         try {
@@ -67,7 +78,23 @@ class Orcamento
     public function getListPeca($id_orcamento)
     {
         try {
-            $sql = "SELECT lista_peca.qtd, categoria.name, p.nome, lista_peca.valor FROM lista_peca
+            $sql = "SELECT lista_peca.id as id_peca, lista_peca.qtd, categoria.name, p.nome, lista_peca.valor FROM lista_peca
+                    INNER JOIN pecas p on lista_peca.id_peca = p.id
+                    INNER JOIN categoria on categoria = categoria.id
+                    WHERE lista_peca.id_orcamento = {$id_orcamento}";
+            $stmt = $this->connect->prepare($sql); // prepara a query para ser executada
+            $stmt->execute(); // realiza a execução da query
+            $resultado = $stmt->fetchAll(); //
+            return $resultado;
+        }catch (Exception $e){
+            return "error";
+        }
+    }
+
+    public function getTotalPrice($id_orcamento)
+    {
+        try {
+            $sql = "SELECT SUM(valor) as valor FROM lista_peca
                     INNER JOIN pecas p on lista_peca.id_peca = p.id
                     INNER JOIN categoria on categoria = categoria.id
                     WHERE lista_peca.id_orcamento = {$id_orcamento}";

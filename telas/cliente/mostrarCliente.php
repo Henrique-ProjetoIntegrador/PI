@@ -102,7 +102,7 @@
                      <div class="col-sm-12">
                         <a href =""><button type= "button"class="btn btn-danger btn-lg btn-block" onClick="window.print()">Emitir Termo</a></button>
                         <br>
-                    </div>
+                    </div>'
                    
                     <div class="col-sm-12">
                         <a href='editarClientes.php?id=<?php echo $_GET['id'] ?>' class='btn btn-danger btn-lg btn-block' >Editar</a>
