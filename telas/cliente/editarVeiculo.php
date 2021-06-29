@@ -4,13 +4,15 @@
     require '../../Classes/Conexao.php';
     require '../../Classes/Cliente.php';
     $conteudo = new Cliente($mysql);
+    $veiculo = $conteudo->consultaVeiculoClientePorId($_GET['id']);
+    
      if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if($_POST['modelo']==''||$_POST['marca']==''||$_POST['ano']==''||$_POST['placa']==''||$_POST['chassis']==''){
             $_SESSION['erroCampos'] =  'Favor preencher todos os campos!';                              
         } else {
-            $conteudo->novoVeiculoCLiente($_POST['id'],$_POST['modelo'],$_POST['marca'],$_POST['ano'],$_POST['placa'],$_POST['chassis']);
+            $conteudo->editarVeiculoCliente($_POST['id'],$_POST['modelo'],$_POST['marca'],$_POST['ano'],$_POST['placa'],$_POST['chassis']);
             $endereco = "veiculoCliente.php?id=";
-            $endereco .=  $_GET['id_cliente'];
+            $endereco .=  $veiculo['id_clientes'];
             redireciona($endereco);
         }   
      }
@@ -25,7 +27,7 @@
     ?>
     <link rel="stylesheet" href="../../styles/novoVeiculo.css">
     <link rel="stylesheet" href="../alerts/modal.css">
-    <title>Novo Veículo</title>
+    <title>Editar Veículo</title>
 </head>
 <body>
 <header>
@@ -39,33 +41,34 @@
     <div class="container">
         <div class="row-2">
             <div class="header-veiculo col-sm-12">
-                <h2 class="col-6 offset-2 text-center">Novo Veículo</h2>
+                <h2 class="col-6 offset-2 text-center">Editar Veículo</h2>
             </div>
         </div>
         <form method="POST" action="">
         <div class="row">       
             <div class="formulario col-sm-6 offset-2">
-                <input type='text' class='form-control' name='id' id='id_cliente' value='<?php echo $_GET['id_cliente']; ?>' hidden>
+                <input type='text' class='form-control' name='id' id='id_cliente' value='<?php echo $veiculo['id']; ?>' hidden>
+                                
                 <div class="form-group">
                     <label for="modelo"><strong>Modelo:</strong></label>
-                    <input type="text" class="form-control" name="modelo" id="modelo" placeholder="Modelo">
+                    <input type="text" class="form-control" name="modelo" id="modelo" value="<?php echo $veiculo['modelo']; ?>" placeholder="Modelo">
                 </div>
                 <div class="form-group">
                     <label for="marca"><strong>Marca:</strong></label>
-                    <input type="text" class="form-control" name="marca" id="marca" placeholder="Marca">
+                    <input type="text" class="form-control" name="marca" id="marca" value="<?php echo $veiculo['marca']; ?>" placeholder="Marca">
                 </div>
                 <div class="form-group">
                     <label for="ano"><strong>Ano:</strong></label>
-                    <input type="text" class=" form-control" name="ano" id="ano" placeholder="Ano">
+                    <input type="text" class=" form-control" name="ano" id="ano" value="<?php echo $veiculo['ano']; ?>" placeholder="Ano">
                 </div>
             
                 <div class="form-group">
                     <label for="placa"><strong>Placa:</strong></label>
-                    <input type="text" class="form-control " name="placa" id="placa" placeholder="Placa">
+                    <input type="text" class="form-control " name="placa" id="placa" value="<?php echo $veiculo['placa']; ?>" placeholder="Placa">
                 </div> 
                 <div class="form-group">
                     <label for="chassis"><strong>Chassis:</strong></label>
-                    <input type="text" class="form-control" name="chassis" id="chassis" placeholder="Chassis">
+                    <input type="text" class="form-control" name="chassis" id="chassis" value="<?php echo $veiculo['chassis']; ?>" placeholder="Chassis">
                 </div>
                 <?php
                 if(isset($_SESSION['erroCampos'])){
@@ -83,7 +86,7 @@
                         <br>
                     </div>
                     <div class="col-sm-12">
-                        <a href ="index.php"><button type= "button" class="btn btn-danger btn-lg btn-block">Voltar</a></button>
+                        <a href ="veiculoCliente.php?id=<?php echo $veiculo['id_clientes'] ?>"><button type= "button" class="btn btn-danger btn-lg btn-block">Voltar</button></a>
                     </div>
                 </div>
             </div>      

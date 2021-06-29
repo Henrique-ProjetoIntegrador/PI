@@ -73,6 +73,46 @@
             $veiculosCliente = $resultado->get_result()->fetch_all(MYSQLI_ASSOC);
             return $veiculosCliente;
         }
+        public function consultaVeiculoClientePorId(string $id)
+        {
+            $selecionaVeiculo = $this->mysql->prepare('SELECT * FROM veiculo WHERE id=?');
+            $selecionaVeiculo->bind_param('s',$id);
+            $selecionaVeiculo->execute();
+            $veiculo = $selecionaVeiculo->get_result()->fetch_assoc();
+            return $veiculo;
+        }
+        public function novoVeiculoCLiente(string $id, string $modelo, string $marca, string $ano, string $placa, string $chassis):void
+        {
+            date_default_timezone_set('America/Sao_Paulo');
+            $getDate = date('y-m-d');   
+            $id_user = $_SESSION['id_usuario'];
+            $_SESSION['novoVeiculoCliente'] =true;
+            $_SESSION['mensagemHeader'] = 'Salvar';
+            $_SESSION['mensagem'] = 'Salvo com sucesso!';
+            $encapsulaVeiculo = $this->mysql->prepare("INSERT INTO veiculo (data_cadastro, modelo, marca, ano, placa, chassis, id_clientes, id_usuario) VALUES ('$getDate' ,?,?,?,?,?,?,$id_user)");
+            $encapsulaVeiculo->bind_param('ssssss',$modelo,$marca,$ano,$placa,$chassis,$id);
+            $encapsulaVeiculo->execute();
+        }
+        public function editarVeiculoCliente(string $id, string $modelo, string $marca, string $ano, string $placa, string $chassis):void
+        {
+            $id_user = $_SESSION['id_usuario'];
+            $_SESSION['editarVeiculoCliente'] =true;
+            $_SESSION['mensagemHeader'] = 'Editar';
+            $_SESSION['mensagem'] = 'Editado com sucesso!';
+            $encapsulaVeiculo = $this->mysql->prepare("UPDATE veiculo SET modelo = ?, marca = ?, ano = ?, placa = ?, chassis = ?, id_usuario = $id_user WHERE id=?");
+            $encapsulaVeiculo->bind_param('ssssss',$modelo,$marca,$ano,$placa,$chassis,$id);
+            $encapsulaVeiculo->execute();
+        }
+        public function removerVeiculoCliente(string $id):void
+        {
+            $_SESSION['removerVeiculoCliente'] =true;
+            $_SESSION['mensagemHeader'] = 'Remover';
+            $_SESSION['mensagem'] = 'Excluído com sucesso!';
+            
+            $removerUsuario = $this->mysql->prepare('DELETE FROM veiculo WHERE id=?');
+            $removerUsuario->bind_param('s',$id);
+            $removerUsuario->execute();
+        }
 
     }
 ?>
