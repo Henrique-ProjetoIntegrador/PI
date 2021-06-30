@@ -19,6 +19,8 @@
     ?>
     <link rel="stylesheet" href="../../styles/menu.css"/>
     <link rel="stylesheet" href="../../styles/usuario.css"/>
+    <link rel="stylesheet" href="../alerts/modal.css">
+
     <title>Usuários</title>   
 </head>
 <body>

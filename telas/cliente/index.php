@@ -19,6 +19,8 @@
     ?>
     <link rel="stylesheet" href="../../styles/menu.css"/>
     <link rel="stylesheet" href="../../styles/clientes.css"/>
+    <link rel="stylesheet" href="../alerts/modal.css"/>
+
 
     <title>Clientes</title>
 </head>

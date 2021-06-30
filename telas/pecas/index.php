@@ -14,6 +14,7 @@
     ?>
     <link rel="stylesheet" href="../../styles/pecas.css">
     <link rel="stylesheet" href="../../styles/menu.css"/>
+    <link rel="stylesheet" href="../alerts/modal.css">
     <title>Peças</title>
 </head>
 <body>

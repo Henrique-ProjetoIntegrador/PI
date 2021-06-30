@@ -55,7 +55,7 @@
 <div class="icones-opcoes imagem-orcamentos col-sm-6">
         <figure class="figure">
             <a href="../orcamento/index.php"><i class="fas fa-file-invoice-dollar mod-orcamento" alt="Ícone Orçamentos"></i></a>
-            <figcaption class="figure-caption">NOVO ORÇAMENTOS</figcaption>
+            <figcaption class="figure-caption">NOVO ORÇAMENTO</figcaption>
         </figure>
 </div>
 
