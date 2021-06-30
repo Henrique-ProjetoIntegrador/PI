@@ -85,7 +85,7 @@
                         <br>
                     </div>
                     <div class="col-sm-12">
-                        <a href ="../cliente/index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</a></button>
+                        <a href ="../cliente/index.php"><button type= "button"class="btn btn-danger btn-lg btn-block">Voltar</button></a>
                     </div>
                 </div>
             </div>      
