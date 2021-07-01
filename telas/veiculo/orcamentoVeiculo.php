@@ -1,5 +1,10 @@
 <?php
-    include '../../includes/verificaSeLogado.php';
+   include '../../includes/verificaSeLogado.php';
+    include '../../includes/redireciona.php';
+    require '../../Classes/Conexao.php';
+    require '../../Classes/Veiculo.php';
+    $conteudo = new Veiculo($mysql);
+    $orcamentos = $conteudo->buscaOrcamentosPorVeiculo($_GET['id']);
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -80,13 +85,9 @@
                         </tbody>
                     </table>
                     <div class="option col-3 offset-1">
-                        <div class="row">
+                        <div class="row">                            
                             <div class="col-12">
-                                <button class="btn btn-danger btn-lg btn-block"> Novo </button>
-                                <br>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-danger btn-lg btn-block"> Voltar </button>
+                                <a href="consultarVeiculo.php?id=<?php echo $_GET['id'] ?>"><button class="btn btn-danger btn-lg btn-block"> Voltar </button></a>
                                 <br>
                             </div>
                         </div>
