@@ -8,7 +8,7 @@ include '../../Classes/Pecas.php';
 require '../../Classes/Conexao.php';
 include_once '../../includes/connectDb.php';
 $conn = getConnection();
-$veiculo = new Veiculo($conn);
+$veiculo = new Veiculo($mysql);
 $usuario = new Usuario($mysql);
 $categoria = new Categoria($conn);
 $orcamento = new Orcamento($conn);
@@ -57,7 +57,7 @@ $id_orcamento = $orcamento->saveOcorrencia($_POST);
                             <label for="veiculo" class="col-sm-3">Veículo</label>
                             <select name="veiculo" id="veiculo"  class="form  form-control form-control-sm col-sm-5" onchange="this.form.submit()">
                                 <?php
-                                $resultado = $veiculo->getVeiculos();
+                                $resultado = $veiculo->consultaTodosVeiculos();
                                 $value = "";
                                 foreach ($resultado as $res) {
                                     if (isset($_POST['veiculo'])){
