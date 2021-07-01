@@ -1,7 +1,11 @@
 <?php
     include '../../includes/verificaSeLogado.php';
-    include_once '../../includes/connectDb.php';
-    $conn = getConnection(); //funcao existente no connectDb
+include '../../Classes/Pecas.php';
+include_once '../../includes/connectDb.php';
+$conn = getConnection();
+$pecas = new Pecas($conn);
+
+$listPecas = $pecas->getAllPecas();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,12 +51,9 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $query = "SELECT * FROM pecas;";
-                                        $stmt = $conn->prepare($query); // prepara a query para ser executada
-                                        $stmt->execute(); // realiza a execução da query
-                                        $resultado = $stmt->fetchAll(); // pega o resultado da execução da query
+
                                         
-                                        foreach($resultado as $res){
+                                        foreach($listPecas as $res){
                                             echo "<tr>";
                                                 echo "<td>".$res['nome']." </td>";
                                                 echo "<td>".$res['categoria']." </td>";

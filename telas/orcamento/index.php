@@ -212,13 +212,13 @@ $id_orcamento = $orcamento->saveOcorrencia($_POST);
             <div class= "modal-dialog" role="document">
                 <div class= "modal-content">
                     <div class="modal-header">
-                        <h5 class= "modal-title"><?php echo $_SESSION['mensagemHeader']; ?></h5>
+                        <h5 class= "modal-title">Novo orçamento</h5>
                     </div>
                     <div class="modal-body">
-                        <p><?php echo $_SESSION['mensagem']; ?></p>
+                        <p>Salvo com sucesso</p>
                     </div>
                     <div class="modal-footer">
-                        <a href="index.php"><button type="button" class="btn btn-success">OK</button></a>
+                        <a href="index.php"><button type="button" value="<?php echo $id_orcamento?>" class="btn btn-success">OK</button></a>
                     </div>
                 </div>
             </div>
