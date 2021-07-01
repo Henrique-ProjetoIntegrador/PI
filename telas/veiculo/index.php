@@ -1,10 +1,14 @@
 <?php
 include '../../includes/verificaSeLogado.php';
-include_once '../../includes/connectDb.php';
-include '../../Classes/Veiculo.php';
-$conn = getConnection(); //funcao existente no connectDb
-$veiculo = new Veiculo($conn);
-
+include '../../includes/redireciona.php';
+require '../../Classes/Conexao.php';
+require '../../Classes/Veiculo.php';
+$conteudo = new Veiculo($mysql);
+$veiculos = $conteudo->consultaTodosVeiculos();
+if($_SERVER['REQUEST_METHOD'] === 'POST'){      
+    $conteudo->removerVeiculo($_POST['id']);
+    redireciona('index.php'); 
+ } 
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -17,6 +21,7 @@ $veiculo = new Veiculo($conn);
     include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
     <link rel="stylesheet" href="../../styles/veiculo.css">
+    <link rel="stylesheet" href="../alerts/modal.css"/>
     <title>Veículos</title>
 </head>
 <body>
@@ -36,6 +41,7 @@ $veiculo = new Veiculo($conn);
             </div>
             <div class="group-veiculos col-sm-6 offset-1">
                 <div class="row">
+                    <input id="myInput" type="text" placeholder=" &#128270; Pesquisar Veículo ">
                     <div class="table-responsive">
                         <table class="table table-striped text-center">
                             <thead class="thead-dark">
@@ -45,18 +51,18 @@ $veiculo = new Veiculo($conn);
                                 <th scope="col" colspan="2">Ação</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <?php
-                            $resultado = $veiculo->getVeiculos();
-                            foreach ($resultado as $res) {
-                                echo "<tr>";
-                                echo "<td><a href='consultarVeiculo.php?id={$res['id']}'>{$res['marca']}</a></td>";
-                                echo "<td><a href='consultarVeiculo.php?id={$res['id']}'>{$res['placa']}</a></td>";
-                                echo "<td><a href='editarVeiculo.php?id=" . $res['id'] . "'>Editar<a/></td>";
-                                echo "<td><a href='deletarVeiculo.php?id=" . $res['id'] . "' class=''>Excluir<a/></td>";
-                                echo "</tr>";
-                            }
-                            ?>
+                            <tbody id="myTable">
+                            <?php foreach ($veiculos as $veiculo): ?>
+                                <tr>
+                                    <td><a href='consultarVeiculo.php?id=<?php echo $veiculo['id']; ?>'><?php echo $veiculo['modelo']; ?></a></td>
+                                    <td><a href='consultarVeiculo.php?id=<?php echo $veiculo['id']; ?>'><?php echo $veiculo['placa']; ?></a></td>
+                                    <td><a href='editarVeiculo.php?id=<?php echo $veiculo['id']; ?>'>Editar</a></td>
+                                    <form action="index.php" method="POST">
+                                        <input type="text" name="id" value="<?php echo $veiculo['id'] ?>" hidden>                                        
+                                        <td><a href=""><button class="botao-excluir-veiculo" type="submit">Excluir</button></a></td>
+                                    </form>                                    
+                                </tr>
+                            <?php endforeach ?>
                             </tbody>
                         </table>
                     </div>
@@ -65,7 +71,7 @@ $veiculo = new Veiculo($conn);
             <div class="option col-3 offset-1">
                 <div class="row">
                     <div class="col-12">
-                        <a href="../cliente/novoVeiculo.php" class="btn btn-danger btn-lg btn-block">Novo</a>
+                        <a href="novoVeiculo.php" class="btn btn-danger btn-lg btn-block">Novo</a>
                         <br>
                     </div>
                     <div class="col-12">
@@ -76,114 +82,47 @@ $veiculo = new Veiculo($conn);
             </div>
         </div>
     </div>
-</main>
-</body>
-</html>
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="header-veiculos col-sm-8">
-            <h2 class="text-center">Veículos Cadastrados</h2>
-        </div>
-
-        <div class="group-veiculos col-sm-6 offset-1">
-            <div class="row">
-                <div class="table-responsive">
-                    <table class="table table-striped text-center">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Veículo</th>
-                                <th scope="col">Placa</th>
-                                <th scope="col"colspan="2">Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="option col-3 offset-1">
-            <div class="row">
-                <div class="col-12">
-                    <a href="pesquisarVeiculo.php" class="btn btn-danger btn-lg btn-block">Pesquisar</a>
-                    <br>
-                </div>
-                <div class="col-12">
-                    <a href="novoVeiculo.php" class="btn btn-danger btn-lg btn-block">Novo</a>
-                    <br>
-                </div>
-                <div class="col-12">
-                    <a href="../principal/index.php" class="btn btn-danger btn-lg btn-block">Voltar</a>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</main>
-</body>
-</html> -->
-<!-- </header>
-<br>
-    <div class="container">
-        <div class="row">
-            <div class="header-veiculo col-sm-8">
-                <h1 class="col-6 offset-3 text-center">VEÍCULOS</h1>
-            </div>
-
-            <div class="group-veiculo col-sm-12">
-                <div class="row">
-                    <table class="table table-hover table-striped text-center col-sm-8">
-                        <thead class="thead-dark">
-                        <tr>
-                            <th style="width: 300px">Placa</th>
-                            <th style="width: 300px">Veículo</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">ABC-123</th>
-                            <td>Renault Sandero</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                        </tr>
-
-                        </tbody>
-                    </table>
-                    <div class="option col-3 offset-1">
-                        <div class="row">
-                            <div class="col-12">
-                            <a href="pesquisarVeiculo.php"><button class="btn btn-danger btn-lg btn-block"> Pesquisar </a></button>
-                                <br>
-                            </div>
-                            <div class="col-12">
-                                <a href="novoVeiculo.php"><button class="btn btn-danger btn-lg btn-block"> Novo</a></button>
-                                <br>
-                            </div>
-                            <div class="col-12">
-                                <a href="../principal/index.php"><button class="btn btn-danger btn-lg btn-block"> Voltar</a></button>
-                                <br>
-                            </div>
+    <?php 
+            if(!isset($_SESSION['novoVeiculo'])){
+                $_SESSION['novoVeiculo'] = false;
+            }
+            if(!isset($_SESSION['editarVeiculo'])){
+                $_SESSION['editarVeiculo'] = false;
+            }
+            if(!isset($_SESSION['removerVeiculo'])){
+                $_SESSION['removerVeiculo'] = false;
+            }
+        ?>
+        <?php if($_SESSION['novoVeiculo']==true||$_SESSION['editarVeiculo'] ==true|| $_SESSION['removerVeiculo'] ==true ){ ?>
+            <div class="modal" id= "salvar" tabindex="-1" role="dialog">
+                <div class= "modal-dialog" role="document">
+                    <div class= "modal-content">
+                        <div class="modal-header">
+                            <h5 class= "modal-title"><?php echo $_SESSION['mensagemHeader']; ?></h5> 
+                        </div>
+                        <div class="modal-body">                            
+                            <p><?php echo $_SESSION['mensagem']; ?></p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="index.php"><button type="button" onclick="<?php $_SESSION['removerVeiculo'] =false; $_SESSION['novoVeiculo']=false;  $_SESSION['editarVeiculo'] =false; ?>" class="btn btn-success">OK</button></a>               
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div> -->
-<!-- </body>
-</html> -->
+            </div>            
+        <?php } ?>
+        <script>                
+            $(document).ready (function (){
+                $('#salvar') .modal('show');
+            });    
+            $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });            
+        </script>
+</main>
+</body>
+</html>

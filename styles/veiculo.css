@@ -31,3 +31,9 @@ a:hover{
 .container{
     margin-top: 5%;
 }
+#myInput{
+    margin: 20px 0;
+    padding: 5px 20px;
+    border-radius: 15px;
+    outline: none;
+}

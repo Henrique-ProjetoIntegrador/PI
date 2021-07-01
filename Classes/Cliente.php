@@ -7,9 +7,7 @@
 
     class Cliente
     {
-        private $mysql;
-        private $usuario;
-        private $idUsuario;
+        private $mysql;       
 
         public function __construct(mysqli $mysql)
         {
@@ -17,7 +15,7 @@
         }
         public function consultaTodosClientes():array
         {
-            $resultado = $this->mysql->query('SELECT * FROM clientes');
+            $resultado = $this->mysql->query('SELECT * FROM clientes ORDER BY nome');
             $clientes = $resultado->fetch_all(MYSQLI_ASSOC);
             return $clientes;
         }

@@ -1,16 +1,34 @@
 <?php
     include '../../includes/verificaSeLogado.php';
+    include '../../includes/redireciona.php';
+    require '../../Classes/Conexao.php';
+    require '../../Classes/Veiculo.php';
+    $conteudo = new Veiculo($mysql);
+    $clientes = $conteudo->consultaTodosClientes();
+     if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if($_POST['modelo']==''||$_POST['marca']==''||$_POST['ano']==''||$_POST['placa']==''||$_POST['chassis']==''){
+            $_SESSION['erroCampos'] =  'Favor preencher todos os campos!';                              
+        } else {
+            $conteudo->novoVeiculo($_POST['id_cliente'],$_POST['modelo'],$_POST['marca'],$_POST['ano'],$_POST['placa'],$_POST['chassis']);
+            redireciona('index.php');
+        }   
+     }
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/ccsFIlter/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-select.css">
     <?php
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
     ?>
-    <link rel="stylesheet" href="../../styles/novoVeiculo.css">
+    
+    
+    
     <link rel="stylesheet" href="../alerts/modal.css">
+    <link rel="stylesheet" href="../../styles/novoVeiculo.css">
     <title>Novo Veículo</title>
 </head>
 <body>
@@ -21,25 +39,26 @@
 
     ?>
 </header>
-
+  
     <div class="container">
         <div class="row-2">
             <div class="header-veiculo col-sm-12">
-                <h2 class="col-6 offset-2 text-center">Editar Veículo</h2>
+                <h2 class="col-6 offset-2 text-center">Novo Veículo</h2>
             </div>
         </div>
-        <form method="POST"action="processaNovoVeiculo.php">
-        <div class="row">
-            <div class="formulario col-sm-6 offset-2">
-
-                <div class="form-group">
-                    <label for="data_cadastro"><strong>Data de cadastro</strong></label>
-                    <input type="date" class="form-control" name="data_cadastro" id="data_cadastro">
-                </div>
-                <!-- <div class="form-group">
-                    <label for="proprietario" ><strong>Proprietario</strong></label>
-                    <input type="text" class="form-control" name="proprietario" id="proprietario" placeholder="Nome do proprietário:">
-                </div> -->
+        <form method="POST" action="">
+        <div class="row">       
+            <div class="formulario col-sm-6 offset-2">           
+                <div class="proprietario">
+                    <label for="basic"><strong>Proprietário:</strong></label>                    
+                        <select id="basic" name="id_cliente" class="selectpicker show-tick form-control" data-live-search="true">
+                            <?php foreach ($clientes as $cliente): ?>
+                                <?php if($cliente['id']!='1'): ?>
+                                    <option value="<?php echo $cliente['id']; ?>"><?php echo $cliente['nome']; ?></option>
+                                <?php endif ?>
+                            <?php endforeach ?>
+                        </select>                    
+                </div>          
                 <div class="form-group">
                     <label for="modelo"><strong>Modelo:</strong></label>
                     <input type="text" class="form-control" name="modelo" id="modelo" placeholder="Modelo">
@@ -52,11 +71,11 @@
                     <label for="ano"><strong>Ano:</strong></label>
                     <input type="text" class=" form-control" name="ano" id="ano" placeholder="Ano">
                 </div>
-
+            
                 <div class="form-group">
                     <label for="placa"><strong>Placa:</strong></label>
                     <input type="text" class="form-control " name="placa" id="placa" placeholder="Placa">
-                </div>
+                </div> 
                 <div class="form-group">
                     <label for="chassis"><strong>Chassis:</strong></label>
                     <input type="text" class="form-control" name="chassis" id="chassis" placeholder="Chassis">
@@ -73,30 +92,55 @@
             <div class="options-buttons col-sm-2">
                 <div class= "row">
                     <div class="col-sm-12">
-                        <button type="submit"class=" btn btn-danger btn-lg btn-block">Salvar</button>
+                        <button type="submit" class=" btn btn-danger btn-lg btn-block">Salvar</button>
                         <br>
                     </div>
                     <div class="col-sm-12">
-                        <a href ="../veiculo/index.php"><button type= "button" class="btn btn-danger btn-lg btn-block">Voltar</a></button>
+                        <a href ="index.php"><button type= "button" class="btn btn-danger btn-lg btn-block">Voltar</a></button>
                     </div>
                 </div>
-            </div>
-        </div>
-        </form>
-    </div>
+            </div>      
+        </div> 
+        </form> 
+    </div>     
+    <script src="../../js/bootstrap-select.js"></script>
+    <script>
+        function createOptions(number) {
+            var options = [], _options;
+
+            for (var i = 0; i < number; i++) {
+                    var option = '<option value="' + i + '">Option ' + i + '</option>';
+                    options.push(option);
+                }
+
+            _options = options.join('');
+            
+            $('#number')[0].innerHTML = _options;
+            $('#number-multiple')[0].innerHTML = _options;
+
+
+            $('#number2')[0].innerHTML = _options;
+            $('#number2-multiple')[0].innerHTML = _options;
+        }
+
+        var mySelect = $('#first-disabled2');
+
+        createOptions(4000);
+
+        $('#special').on('click', function () {
+            mySelect.find('option:selected').prop('disabled', true);
+            mySelect.selectpicker('refresh');
+        });
+
+        $('#special2').on('click', function () {
+            mySelect.find('option:disabled').prop('disabled', false);
+            mySelect.selectpicker('refresh');
+        });
+
+        $('#basic2').selectpicker({
+            liveSearch: true,
+            maxOptions: 1
+        });
+    </script>
 </body>
 </html>
-
-<!--
-
-                </div>
-                <div class="col-sm-12">
-                  <a href="index.php"><button class="btn btn-danger btn-lg btn-block">Voltar</a></button>
-                </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-         -->
-        

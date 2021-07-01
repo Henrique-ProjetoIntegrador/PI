@@ -28,5 +28,17 @@ a:hover{
 .container{
     margin-top: 5%;
 }
+.proprietario{
+    width: 50%;
+}
+.proprietario .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover{
+    background-color: #e14734;
+}
+.proprietario .form-control:focus{
+    border-color: black;
+    box-shadow: none;
+}
 
-
+.proprietario .btn-light.focus, .btn-light:focus{
+    box-shadow: none;    
+}

@@ -40,6 +40,7 @@
                 </div>
                 <div class="group-veiculos col-sm-6 offset-1">
                     <div class="row">
+                        <input id="myInput" type="text" placeholder=" &#128270; Pesquisar Cliente ">
                         <div class="table-responsive">               
                             <table class="table table-striped text-center">
                                 <thead class="thead-dark">
@@ -49,7 +50,7 @@
                                         <th scope="col"colspan="2">Ação</th> 
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="myTable">
                                 <?php foreach($clientes as $cliente): ?>
                                     <?php if($cliente['id'] != '1' ): ?>
                                         <tr>
@@ -109,13 +110,21 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <script>                
-                $(document).ready (function (){
-                    $('#salvar') .modal('show');
-                });                
-            </script>
-        <?php } ?>     
+            </div>            
+        <?php } ?>
+        <script>                
+            $(document).ready (function (){
+                $('#salvar') .modal('show');
+            });
+            $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });            
+        </script>   
     </main>   
 </body>
 </html>
