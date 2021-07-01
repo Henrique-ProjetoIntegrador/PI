@@ -1,5 +1,11 @@
 <?php
     include '../../includes/verificaSeLogado.php';
+    include '../../Classes/Categoria.php';
+    include_once '../../includes/connectDb.php';
+$conn = getConnection();
+$categoria = new Categoria($conn);
+
+$listCategoria = $categoria->getCategoria();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,14 +53,11 @@
                 <div class="form-group">
                         <label for="categoria" class=col-sm-3>CATEGORIA:</label>
                         <select class="form-control" name="categoria" id="categoria">
-                            <option hidden>Selecione uma opção</option>
-                            <option>Ar Condicionado</option>
-                            <option>Borracharia</option>  
-                            <option>Direção</option>
-                            <option>Elétrica</option>  
-                            <option>Freio</option>
-                            <option>Injeção</option>
-                            <option>Motor</option>   
+                            <?php
+                                foreach ($listCategoria as $categoria){
+                                    echo "<<option value='{$categoria['id']}'>{$categoria['name']}</option>>";
+                                }
+                            ?>
                         </select> 
                     </div>
                     <?php

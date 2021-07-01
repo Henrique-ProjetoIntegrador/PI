@@ -1,8 +1,11 @@
 <?php
-
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
 class Orcamento
 {
+
     private $connect;
 
     public function __construct($conn)
@@ -13,7 +16,7 @@ class Orcamento
     public function saveOcorrencia($request){
         try {
             if (!isset($request['id_orcamento'])){
-                if (!empty($request['confirm']) && !empty($request['veiculo']) && !empty($request['odometro']) && !empty($request['usuario']) && !empty($request['qtd']) && !empty($request['id_categoria']) && !empty($request['pecas']) && !empty($request['preco'])){
+                if (!empty('save') && !empty($request['confirm']) && !empty($request['veiculo']) && !empty($request['odometro']) && !empty($request['usuario']) && !empty($request['qtd']) && !empty($request['id_categoria']) && !empty($request['pecas']) && !empty($request['preco'])){
                     $today = date('Y-m-d');
                     $sql = "INSERT INTO orcamentos (id_veiculo, data_cadastro, id_usuario, odometro) VALUES ('{$request['veiculo']}', '{$today}', '{$request['usuario']}', '{$request['odometro']}')";
 
@@ -24,21 +27,39 @@ class Orcamento
                     $idOrcamento = $orcamento[0]['id'];
 
                     $this->savePecas($idOrcamento, $request);
+                    $_SESSION['mensagemHeader'] = "Novo Orçamento";
+                    $_SESSION['mensagem'] = "Ocorrencia salva com sucesso";
                     return $idOrcamento;
+                }else{
+                    $_SESSION['mensagemHeader'] = "Novo Orçamento";
+                    $_SESSION['mensagem'] = "Erro ao salvar";
+                    if (isset($request['id_orcamento'])){
+                        return $request['id_orcamento'];
+                    }
+
                 }
             }else{
                 if (isset($request['delete'])){
                     $this->deleteItemPeca($request['delete']);
+                    $_SESSION['mensagemHeader'] = "Deletar peca";
+                    $_SESSION['mensagem'] = "Peça deletada com sucesso";
                     return $request['id_orcamento'];
+
                 }
                 if (!empty($request['confirm']) && !empty($request['veiculo']) && !empty($request['odometro']) && !empty($request['usuario']) && !empty($request['qtd']) && !empty($request['id_categoria']) && !empty($request['pecas']) && !empty($request['preco'])) {
                     $this->savePecas($request['id_orcamento'], $request);
+                    $_SESSION['mensagemHeader'] = "Novo Orçamento";
+                    $_SESSION['mensagem'] = "Ocorrencia salva com sucesso";
                     return $request['id_orcamento'];
                 }else{
+                    $_SESSION['mensagemHeader'] = "Novo Orçamento";
+                    $_SESSION['mensagem'] = "Erro ao salvar";
                     return $request['id_orcamento'];
                 }
             }
         } catch (Exception $e){
+            $_SESSION['mensagemHeader'] = "Novo Orçamento";
+            $_SESSION['mensagem'] = "Erro ao salvar";
             return $request['id_orcamento'];
         }
     }

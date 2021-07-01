@@ -10,6 +10,17 @@ class Pecas
         $this->connect = $conn;
     }
 
+    public function getAllPecas()
+    {
+        $query = "SELECT pecas.id as id, pecas.nome, pecas.preco as preco, pecas.qtd as qtd,  categoria.name as categoria FROM pecas
+                    INNER JOIN categoria ON
+                    categoria.id = pecas.categoria";
+        $stmt = $this->connect->prepare($query); // prepara a query para ser executada
+        $stmt->execute(); // realiza a execução da query
+
+        return $stmt->fetchAll(); // pega o resultado da execução da query
+    }
+
     public function getPecasOfCategoria($id)
     {
         try {
