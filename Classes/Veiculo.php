@@ -51,9 +51,26 @@ class Veiculo
         }
         public function removerVeiculo(string $id):void
         {
+            
             $_SESSION['removerVeiculo'] =true;
             $_SESSION['mensagemHeader'] = 'Remover';
             $_SESSION['mensagem'] = 'Excluído com sucesso!';
+
+            $lista_orcamentos = $this->buscaOrcamentosPorVeiculo($id);           
+
+            foreach($lista_orcamentos as $orc){
+                $id_orcamento =$orc['id'];
+                $removeListaPeca = $this->mysql->prepare("DELETE FROM lista_peca WHERE lista_peca.id_orcamento= ?");
+                $removeListaPeca->bind_param('s',$id_orcamento);
+                $removeListaPeca->execute();
+                $removeListaServico = $this->mysql->prepare("DELETE FROM lista_peca WHERE lista_peca.id_orcamento= ?");
+                $removeListaServico->bind_param('s',$id_orcamento);
+                $removeListaServico->execute();           
+    
+            }
+            $removerOrcamento = $this->mysql->prepare('DELETE FROM orcamentos WHERE id_veiculo=?');
+            $removerOrcamento->bind_param('s',$id);
+            $removerOrcamento->execute();
             
             $removerVeiculo = $this->mysql->prepare('DELETE FROM veiculo WHERE id=?');
             $removerVeiculo->bind_param('s',$id);
@@ -64,5 +81,22 @@ class Veiculo
             $resultado = $this->mysql->query('SELECT * FROM clientes ORDER BY nome');
             $clientes = $resultado->fetch_all(MYSQLI_ASSOC);
             return $clientes;
+        }
+        public function consultaClientePorId(string $id)
+        {
+            $selecionaUsuario = $this->mysql->prepare('SELECT * FROM clientes WHERE id=?');
+            $selecionaUsuario->bind_param('s',$id);
+            $selecionaUsuario->execute();
+            $usuario = $selecionaUsuario->get_result()->fetch_assoc();
+            return $usuario;
+        }
+        public function buscaOrcamentosPorVeiculo(string $id):array
+        {
+            $orcamento = $this->mysql->prepare('SELECT id FROM orcamentos WHERE id_veiculo=?');
+            $orcamento->bind_param('s',$id);
+            $orcamento->execute();
+            $lista_orcamentos = $orcamento->get_result()->fetch_all(MYSQLI_ASSOC);
+
+            return $lista_orcamentos;
         }
 }

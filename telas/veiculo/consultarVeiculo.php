@@ -1,31 +1,30 @@
 <?php
     include '../../includes/verificaSeLogado.php';
-    include_once '../../includes/connectDb.php';
-    include '../../Classes/Veiculo.php';
-    $conn = getConnection();
-    $veiculo = new Veiculo($conn);
-    if (isset($_GET['id'])) {
-        $res = $veiculo->getVeiculoOfClient($_GET['id']);
-        if (empty($res)){
-            echo "Nenhum veiculo encontrado!";
-            die();
-        }
-    }else{
-        echo "Não foi possivel encontrar nenhuma veiculo, favor contactar o administrador do sistema";
-        die();
-    }
+    include '../../includes/redireciona.php';
+    require '../../Classes/Conexao.php';
+    require '../../Classes/Veiculo.php';
+    $conteudo = new Veiculo($mysql);    
+    $veiculo = $conteudo->consultaVeiculoPorId($_GET['id']);
+    $proprietario = $conteudo->consultaClientePorId($veiculo['id_clientes']);
 
+     if($_SERVER['REQUEST_METHOD'] === 'POST'){       
+        $conteudo->removerVeiculo($_GET['id']);
+        redireciona('index.php');          
+     }
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/ccsFIlter/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap-select.css">
     <?php
         include_once "../layout/designPatterns/stylesBootstrapEcssReset.php";
-    ?>
-    <link rel="stylesheet" href="../../styles/consultaVeiculo.css">
-    <title>Consulta Veiculo</title>
+    ?>    
+    <link rel="stylesheet" href="../alerts/modal.css">
+    <link rel="stylesheet" href="../../styles/novoVeiculo.css">
+    <title>Novo Veículo</title>
 </head>
 <body>
 <header>
@@ -35,92 +34,80 @@
 
     ?>
 </header>
-<?php if ($res != "error"){ ?>
+  
     <div class="container">
-        <div class="row">
+        <div class="row-2">
             <div class="header-veiculo col-sm-12">
-                <h1 class="col-6 offset-3 text-center">Consulta Veiculo</h1>
-            </div>
-            <div class="group-veiculo col-sm-12">
-                <div class="row">
-                    <div class="campos col-sm-8">
-                        <div class="container">
-                            <div class="row">
-                                <div class="dataCadastro col-sm-6">
-                                    <div class="row">
-                                        <label for="data_cadastro" class="col-sm-6"><strong>Data de cadastro</strong></label>
-                                        <input type="date" class="form form-control form-control-sm col-sm-6" name="data_cadastro" id="data_cadastro" value="<?php echo $res[0][1]?>" disabled>
-                                    </div>
-                                </div>
-                                <div class="proprietario col-sm-6">
-                                    <div class="row">
-                                        <label for="proprietario" class="col-sm-2"><strong>Dono</strong></label>
-                                        <input type="text" class="form form-control form-control-sm col-sm-10" name="proprietario" id="proprietario" value="<?php echo $res[0]['nome']?>" disabled>
-                                    </div>
-                                </div>
-                                <div class="modelo col-sm-6">
-                                    <div class="row">
-                                        <label for="modelo" class="col-sm-4"><strong>Modelo</strong></label>
-                                        <input type="text" class="form form-control form-control-sm col-sm-8" name="modelo" id="modelo" value="<?php echo $res[0]['modelo']?>" disabled>
-                                    </div>
-                                </div>
-                                <div class="marca col-sm-6">
-                                    <div class="row">
-                                        <label for="marca" class="col-sm-4"><strong>Marca</strong></label>
-                                        <input type="text" class="form form-control form-control-sm col-sm-8" name="marca" id="marca" value="<?php echo $res[0]['marca']?>" disabled>
-                                    </div>
-                                </div>
-                                <div class="modeloAno col-sm-4">
-                                    <div class="row">
-                                        <label for="modeloAno" class="col-sm-6"><strong>Ano</strong></label>
-                                        <input type="text" class="form form-control form-control-sm col-sm-6" name="modeloAno" id="modeloAno" value="<?php echo $res[0]['ano']?>" disabled>
-                                    </div>
-                                </div>
-                                <div class="tamanhoRoda col-sm-4">
-                                    <div class="row">
-                                        <label for="tamanho_roda" class="col-sm-6"><strong>Tam. Roda</strong></label>
-                                        <input type="number" class="form form-control form-control-sm col-sm-6" name="tamanho_roda" id="tamanho_roda" value="13" disabled>
-                                    </div>
-                                </div>
-                                <div class="placa col-sm-4">
-                                    <div class="row">
-                                        <label for="placa" class="col-sm-4"><strong>Placa</strong></label>
-                                        <input type="text" class="form form-control form-control-sm col-sm-8" name="placa" id="placa" value="<?php echo $res[0]['placa']?>" disabled>
-                                    </div>
-                                </div>
-                                <div class="chassis col-sm-6">
-                                    <div class="row">
-                                        <label for="chassis" class="col-sm-4"><strong>Chassis</strong></label>
-                                        <input type="text" class="form form-control form-control-sm col-sm-8" name="chassis" id="chassis" value="<?php echo $res[0]['chassis']?>" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="option col-3 offset-1">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <a href="<?php echo "editarVeiculo.php?id={$_GET['id']}"?>" class="btn btn-danger btn-lg btn-block">Editar</a>
-                                <br>
-                            </div>
-                            <div class="col-sm-12">
-                                <button class="btn btn-danger btn-lg btn-block">Orçamentos</button>
-                                <br>
-                            </div>
-                            <div class="col-sm-12">
-                                <button class="btn btn-danger btn-lg btn-block">Remover</button>
-                                <br>
-                            </div>
-                            <div class="col-sm-12">
-                                <button class="btn btn-danger btn-lg btn-block">Voltar</button>
-                                <br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="col-6 offset-2 text-center">Novo Veículo</h2>
             </div>
         </div>
-</div>
-<?php } ?>
+        
+        <div class="row">       
+            <div class="formulario col-sm-6 offset-2">           
+                <div class="form-group">
+                    <label for="proprietario"><strong>Proprietário:</strong></label>                    
+                    <input type="text" class="form-control" name="modelo" id="proprietario" value="<?php echo $proprietario['nome']; ?> " disabled>
+                </div>
+                <div class="form-group">
+                    <label for="data-cadastro"><strong>Data de Cadastro:</strong></label>                    
+                    <input type="text" class="form-control" name="modelo" id="data-cadastro" value="<?php echo $veiculo['data_cadastro']; ?> " disabled>
+                </div>                   
+                <div class="form-group">
+                    <label for="modelo"><strong>Modelo:</strong></label>
+                    <input type="text" name="id" value="<?php echo $veiculo['id']; ?>" hidden>
+                    <input type="text" class="form-control" name="modelo" id="modelo" value="<?php echo $veiculo['modelo']; ?> " placeholder="Modelo" disabled >
+                </div>
+                <div class="form-group">
+                    <label for="marca"><strong>Marca:</strong></label>
+                    <input type="text" class="form-control" name="marca" id="marca" value="<?php echo $veiculo['marca']; ?> " placeholder="Marca" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="ano"><strong>Ano:</strong></label>
+                    <input type="text" class=" form-control" name="ano" id="ano" value="<?php echo $veiculo['ano']; ?> " placeholder="Ano" disabled>
+                </div>
+            
+                <div class="form-group">
+                    <label for="placa"><strong>Placa:</strong></label>
+                    <input type="text" class="form-control " name="placa" id="placa" value="<?php echo $veiculo['placa']; ?> " placeholder="Placa" disabled>
+                </div> 
+                <div class="form-group">
+                    <label for="chassis"><strong>Chassis:</strong></label>
+                    <input type="text" class="form-control" name="chassis" id="chassis" value="<?php echo $veiculo['chassis']; ?> " placeholder="Chassis" disabled>
+                </div>
+                <?php
+                if(isset($_SESSION['erroCampos'])){
+                    echo "<div class='alert alert-danger'>";
+                    echo $_SESSION['erroCampos'];
+                    echo "</div>";
+                    unset($_SESSION['erroCampos']);
+                }
+                ?>
+            </div>
+            <div class="options-buttons col-sm-2">
+                <div class= "row">
+                    <div class="col-sm-12">
+                        <a href="editarVeiculo.php?id=<?php echo $veiculo['id'] ?>"><button type="button" class=" btn btn-danger btn-lg btn-block">Editar</button></a>
+                        <br>
+                    </div>                    
+                    <div class="col-sm-12">
+                        <a href="orcamentoVeiculo.php?id=<?php echo $veiculo['id'] ?>"><button type="button" class=" btn btn-danger btn-lg btn-block">Orçamentos</button></a>
+                        <br>
+                    </div>
+                    
+                    <div class="col-sm-12">
+                        <form action="" method="POST">                        
+                            <button type="submit" class=" btn btn-danger btn-lg btn-block">Remover</button>
+                            <br>
+                        </form>
+                    </div>
+                    
+                    <div class="col-sm-12">
+                        <a href ="index.php"><button type= "button" class="btn btn-danger btn-lg btn-block">Voltar</button></a>
+                    </div>
+                </div>
+            </div>      
+        </div> 
+        
+    </div> 
 </body>
 </html>
