@@ -5,6 +5,7 @@
     require '../../Classes/Veiculo.php';
     $conteudo = new Veiculo($mysql);
     $orcamentos = $conteudo->buscaOrcamentosPorVeiculo($_GET['id']);
+    $veiculo = $conteudo->consultaVeiculoPorId($_GET['id']);    
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -40,7 +41,7 @@
                         <label for="veiculo"><strong>Veiculo:</strong></label>
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" class="form form-control form-control-sm" value="CORSA HETCH ABC-1234" disabled>
+                        <input type="text" class="form form-control form-control-sm" value="<?php echo $veiculo['modelo'];echo " ("; echo $veiculo['placa']; echo ")"; ?>" disabled>
                     </div>
                 </div>
             </div>
@@ -53,35 +54,19 @@
                             <th style="width: 300px">COD</th>
                             <th style="width: 300px">Data</th>
                             <th style="width: 300px">Mecanico</th>
+                            <th style="width: 300px">Valor</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">001</th>
-                            <th scope="row">14/11/2020</th>
-                            <td>Ozeias da Silva</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
+                            <?php foreach ($orcamentos as $orcamento): ?>
+                                <?php $inf_orcamento = $conteudo->consultaListaOrcamentos($orcamento['id']); ?>
+                                <tr>                                    
+                                    <td scope="row"><a href="consultaOrcamento.php?id=<?php echo $orcamento['id'] ?>"><?php echo $inf_orcamento['id_orcamento'] ?></a></td>
+                                    <td scope="row"><a href="consultaOrcamento.php?id=<?php echo $orcamento['id'] ?>"><?php echo date('d/m/Y',strtotime($inf_orcamento['data_cadastro'])) ?></a></td>
+                                    <td><a href="consultaOrcamento.php?id=<?php echo $orcamento['id'] ?>"><?php echo $inf_orcamento['mecanico'] ?></a></td>
+                                    <td><a href="consultaOrcamento.php?id=<?php echo $orcamento['id'] ?>">R$ <?php echo $inf_orcamento['valor'] ?>,00</a></td>
+                                </tr>   
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                     <div class="option col-3 offset-1">
