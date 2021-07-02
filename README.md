@@ -1,6 +1,6 @@
-# PI
+# Repositório referente ao trabalho desenvolvido no Projeto Integrador (PI) do 4° Período do curso de Engenharia de Software:
+<h2>LEI GERAL DE PROTEÇÃO DE DADOS (LGPD) E SUA APLICAÇÃO NO DESENVOLVIMENTO DE SISTEMA DE GERENCIAMENTO EM UMA OFICINA MECÂNICA LOCALIZADA EM SÃO JOSÉ DOS PINHAIS</h2>
 
-Teste
+<h3>Resumo do Trabalho</h3>
 
-Oi
-tchau
+<p>O presente trabalho tem como foco detalhar a lei geral de proteção de dados (LGPD) no seguimento de um sistema destinado a gerenciamento de clientes e orçamento de uma oficina mecânica nomeada Cido Auto Center, localizada em São José dos Pinhais. O objetivo geral desse trabalho é o desenvolvimento de aplicação web para controle de orçamento e fluxo de clientes, utilizando diretrizes da Lei 13.709 presente na legislação brasileira, tendo como objetivos específicos identificar na literatura quais os conceitos para o desenvolvimento da aplicação web e Lei 13.709, verificar quais conceitos da lei são aplicados na arquitetura de redes, banco de dados e interface de usuário, aplicar os conceitos encontrados no desenvolvimento do software e discutir sobre os resultados obtido. A metodologia adotada foi pesquisa bibliográfica, documental e de internet com os temas relevantes aos assuntos. Para a fundamentação teórica com o intuito de possibilitar maior entendimento do leitor sobre assunto, encontra-se esclarecimentos sobre marcos civil da internet e LGPD, arquitetura de rede e computadores e programação web. No começo do desenvolvimento foi realizado a criação da estrutura da rede do sistema junto com as definições de proteção de dados e segurança, depois foi criado o banco de dados do sistema e desenvolvido a aplicação web, que apresenta as telas do sistema, suas linguagens e o servidor utilizado para a aplicação. Após desenvolver a aplicação realizou-se discussão sobre os resultados obtidos, seguido das considerações finais e referências.</p>
