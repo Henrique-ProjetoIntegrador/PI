@@ -64,7 +64,7 @@
                                     <td scope="row"><a href="consultaOrcamento.php?id=<?php echo $orcamento['id'] ?>"><?php echo $inf_orcamento['id_orcamento'] ?></a></td>
                                     <td scope="row"><a href="consultaOrcamento.php?id=<?php echo $orcamento['id'] ?>"><?php echo date('d/m/Y',strtotime($inf_orcamento['data_cadastro'])) ?></a></td>
                                     <td><a href="consultaOrcamento.php?id=<?php echo $orcamento['id'] ?>"><?php echo $inf_orcamento['mecanico'] ?></a></td>
-                                    <td><a href="consultaOrcamento.php?id=<?php echo $orcamento['id'] ?>">R$ <?php echo $inf_orcamento['valor'] ?>,00</a></td>
+                                    <td><a href="consultaOrcamento.php?id=<?php echo $orcamento['id'] ?>">R$ <?php echo round($inf_orcamento['valor'], 2) ?></a></td>
                                 </tr>   
                             <?php endforeach ?>
                         </tbody>

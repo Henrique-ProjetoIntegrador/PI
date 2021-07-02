@@ -5,6 +5,10 @@
      require '../../Classes/Conexao.php';
      require '../../Classes/Usuario.php';
 
+    if($_SESSION['type_user'] != "ADM"){
+        redireciona('../principal/index.php');
+    }
+
      $conteudo = new Usuario($mysql);
      if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if($_POST['nome'] == "" || $_POST['senha'] == "" || $_POST['funcao']== "Selecione uma opção"){

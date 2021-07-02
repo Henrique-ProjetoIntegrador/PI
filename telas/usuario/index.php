@@ -3,6 +3,13 @@
     include '../../includes/redireciona.php';
     require '../../Classes/Conexao.php';
     require '../../Classes/Usuario.php';
+
+
+    if($_SESSION['type_user'] != "ADM"){
+        redireciona('../principal/index.php');
+    }
+
+
     $conteudo = new Usuario($mysql);
     $usuarios = $conteudo->consultaTodosUsuarios();
     if($_SERVER['REQUEST_METHOD'] === 'POST'){  

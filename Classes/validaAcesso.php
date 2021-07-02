@@ -47,7 +47,10 @@
                     $valida->execute();
     
                     $resultado = $valida->get_result()->fetch_assoc();
-
+                    $_SESSION['type_user'] = "MEC";
+                    if ($resultado["funcao"] == "Administrador") {
+                        $_SESSION['type_user'] = "ADM";
+                    }
                     if (empty($resultado)){
                         $_SESSION['errologin'] = "usuário ou senha incorretos";
                         $tentativas = $_SESSION['tentativas'];
