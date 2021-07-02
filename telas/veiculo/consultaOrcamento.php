@@ -5,8 +5,7 @@
     require '../../Classes/Veiculo.php';
     $conteudo = new Veiculo($mysql);
     $template_orcamento = $conteudo->preparaTemplateOrcamentoPorId($_GET['id']);
-    $lista_itens = $conteudo->criaListaParaExibirOrcamentoPorId($_GET['id']); 
-    $id_veiculo;   
+    $lista_itens = $conteudo->criaListaParaExibirOrcamentoPorId($_GET['id']);
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -64,7 +63,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($lista_itens as $item): ?> 
+
+                            <?php
+                            if ( isset($lista_itens)){
+                            foreach ($lista_itens as $item): ?>
                                 <?php $id_veiculo= $item['id_veiculo'] ?>                               
                                 <tr>                                    
                                     <td scope="row"><?php echo $item['qtd'] ?></td>
@@ -73,6 +75,7 @@
                                                                       
                                 </tr>                                
                             <?php endforeach ?>
+                            <?php }?>
                         </tbody>
                     </table>
                     <div class="option col-3 offset-1">
@@ -84,14 +87,14 @@
                         </div>
                         <div class="row">                            
                             <div class="col-12">
-                                <a href="orcamentoVeiculo.php?id=<?php echo $id_veiculo ?>"><button class="btn btn-danger btn-lg btn-block"> Voltar </button></a>
+                                <a href="orcamentoVeiculo.php?id=<?php echo (isset($id_veiculo) ?  $id_veiculo  : "#")?>"><button class="btn btn-danger btn-lg btn-block"> Voltar </button></a>
                                 <br>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <p class="info-orcamento"><strong>Total:</strong> R$  <?php echo $template_orcamento['valor_total'] ?>,00</p>
+                    <p class="info-orcamento"><strong>Total:</strong> R$  <?php echo (isset($template_orcamento['valor_total'])) ? round($template_orcamento['valor_total'], 2) : ""?></p>
                 </div>
                 
             </div>
